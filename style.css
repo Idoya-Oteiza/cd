@@ -1,3 +1,37 @@
+.main-category-selector {
+    background: #0a0a0a;
+    padding: 15px;
+    border-bottom: 2px solid #cc0000;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    text-align: center;
+}
+
+.selector-content label {
+    color: white;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+#team-switcher {
+    padding: 8px 15px;
+    background: #1a1a1a;
+    color: white;
+    border: 1px solid #0055ff;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.team-container.hidden {
+    display: ne;
+}
+
+.view-section.hidden {
+    display: none;
+}
+
 :root {
     --primary-blue: #0055ff;
     --primary-red: #cc0000;
@@ -70,7 +104,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9)), url('https://i.postimg.cc/KzrbS4qZ/Screenshot-2026-03-25-11-38-04.png');
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9)), ;
     background-size: cover;
     background-position: center;
     margin-bottom: 60px;
@@ -347,3 +381,80 @@ body {
 
 .highlight-idoya td { color: #fff; font-weight: 700; }
 .dark-table.classification tr:hover { background: rgba(255, 255, 255, 0.05); }
+.hero-section {
+    width: 100%;
+    min-height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    transition: background-image 0.5s ease-in-out;
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://i.postimg.cc/P5MsyMCN/Screenshot-2026-04-16-21-42-48.png');
+}
+body {
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://i.postimg.cc/P5MsyMCN/Screenshot-2026-04-16-21-42-48.png');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.5s ease-in-out;
+}
+.hero-dark {
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+.hidden {
+    display: none !important;
+}
+.hero-dark {
+    width: 100%;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    
+    transition: background-image 0.5s ease-in-out;
+}
+
+.hidden {
+    display: none !important;
+}
+.team-container, .view-section {
+    background: transparent !important;
+}
+function cambiarCategoria(categoria) {
+    const fotosCabecera = {
+        'primer': 'https://i.postimg.cc/P5MsyMCN/Screenshot-2026-04-16-21-42-48.png',
+        'segundo': 'https://i.postimg.cc/8CnYXXNB/Screenshot-2026-04-16-21-42-29.png',
+        'juvenil': 'https://i.postimg.cc/8cLn51WL/Screenshot-2026-04-16-21-43-31.png',
+        'cadete': 'https://i.postimg.cc/284PjxFJ/Screenshot-2026-04-16-21-42-40.png'
+    };
+
+    const equipoActivo = document.getElementById('cat-' + categoria);
+    if (equipoActivo) {
+        // ... (resto de tu lógica de ocultar/mostrar) ...
+
+        if (fotosCabecera[categoria]) {
+            // Aplicamos al body para que el CSS de arriba haga el recorte automático
+            document.body.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('${fotosCabecera[categoria]}')`;
+        }
+        mostrarSeccion('inicio');
+    }
+}
