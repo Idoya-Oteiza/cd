@@ -8,11 +8,24 @@
     <meta charset="UTF-8">
     <title>CD Idoya | Oteiza 2025-2026 Juvenil</title>
     <link rel="stylesheet" href="./style.css">
-
   </head>
     
   <body>
-  <header class="navbar-dark">
+    
+ <div class="main-category-selector">
+    <div class="selector-content">
+        <label>Seleccione Categoría:</label>
+        <select id="team-switcher" onchange="cambiarCategoria(this.value)">
+            <option value="primer">PRIMER EQUIPO</option>
+            <option value="segundo">SEGUNDO EQUIPO</option>
+            <option value="juvenil">JUVENIL</option>
+            <option value="cadete">CADETE</option>
+        </select>
+    </div>
+</div>
+
+<div id="cat-primer" class="team-container">
+   <header class="navbar-dark">
     <div class="nav-container">
         <div class="brand">
             <span class="logo-accent">CD</span> IDOYA
@@ -33,6 +46,401 @@
             <div class="hero-inner">
                 <span class="badge">Oficial</span>
                 <h1>CLUB DEPORTIVO IDOYA</h1>
+                <p>Pasión, Esfuerzo y Corazón en Oteiza de la Solana.</p>
+                <div class="line-decorator"></div>
+            </div>
+        </div>
+        <div class="summary-cards">
+            <div class="glass-card">
+                <h3>El Club</h3>
+                <p>El Club Deportivo Idoya representa la identidad de nuestro pueblo. Fundado con el objetivo de promover el deporte, hoy competimos con orgullo en cada jornada defendiendo nuestros valores y la historia de Oteiza de la Solana.</p>
+            </div>
+            <div class="glass-card">
+                <h3>Estadio Iturtxipia</h3>
+                <p>Nuestra casa, donde la afición se hace sentir y el equipo entrega todo por los colores azul y rojo en cada disputa de balón. Un lugar de encuentro para toda la comunidad de Oteiza.</p>
+            </div>
+        </div>
+        <div class="shortcut-menu">
+            <button class="action-card" onclick="mostrarSeccion('jugadores')">
+                <div class="icon">👥</div>
+                <span class="card-label">PLANTILLA</span>
+                <small>25 Integrantes</small>
+            </button>
+            <button class="action-card" onclick="mostrarSeccion('resultados')">
+                <div class="icon">📈</div>
+                <span class="card-label">RESULTADOS</span>
+                <small>30 Jornadas</small>
+            </button>
+        </div>
+        <div class="classification-container">
+            <h2 class="section-title-alt">CLASIFICACIÓN OFICIAL</h2>
+            <div class="table-wrapper">
+                <table class="dark-table classification">
+                    <thead>
+                        <tr>
+                            <th>POS</th>
+                            <th>EQUIPO</th>
+                            <th>PTS</th>
+                            <th>J</th>
+                            <th>G</th>
+                            <th>E</th>
+                            <th>P</th>
+                            <th>F</th>
+                            <th>C</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td class="team-name">C.D Zarramonza</td><td>57</td><td>26</td><td>18</td><td>3</td><td>5</td><td>47</td><td>23</td></tr>
+                        <tr><td>2</td><td class="team-name">C.D Azkoyen</td><td>55</td><td>26</td><td>17</td><td>4</td><td>5</td><td>73</td><td>36</td></tr>
+                        <tr><td>3</td><td class="team-name">C.A Milagres</td><td>50</td><td>26</td><td>15</td><td>5</td><td>6</td><td>60</td><td>27</td></tr>
+                        <tr><td>4</td><td class="team-name">C.D. Corellano</td><td>50</td><td>26</td><td>13</td><td>11</td><td>2</td><td>52</td><td>25</td></tr>
+                        <tr><td>5</td><td class="team-name">C.A Valtierrano</td><td>50</td><td>26</td><td>15</td><td>5</td><td>6</td><td>52</td><td>30</td></tr>
+                        <tr><td>6</td><td class="team-name">C.D Larrate</td><td>45</td><td>26</td><td>13</td><td>6</td><td>7</td><td>50</td><td>42</td></tr>
+                        <tr><td>7</td><td class="team-name">C.D. Aluvion</td><td>35</td><td>26</td><td>10</td><td>5</td><td>11</td><td>32</td><td>33</td></tr>
+                        <tr><td>8</td><td class="team-name">C.D. San Andres</td><td>34</td><td>26</td><td>10</td><td>4</td><td>12</td><td>41</td><td>56</td></tr>
+                        <tr><td>9</td><td class="team-name">C.D Arenas</td><td>33</td><td>26</td><td>9</td><td>6</td><td>11</td><td>41</td><td>46</td></tr>
+                        <tr><td>10</td><td class="team-name">C.A Cirbonero "B"</td><td>31</td><td>26</td><td>9</td><td>5</td><td>12</td><td>37</td><td>45</td></tr>
+                        <tr class="highlight-idoya"><td>11</td><td class="team-idoya">C.D. IDOYA</td><td>31</td><td>26</td><td>8</td><td>7</td><td>11</td><td>42</td><td>43</td></tr>
+                        <tr><td>12</td><td class="team-name">C.D. Sesma</td><td>30</td><td>26</td><td>8</td><td>6</td><td>12</td><td>37</td><td>40</td></tr>
+                        <tr><td>13</td><td class="team-name">C.D Alesves</td><td>22</td><td>26</td><td>6</td><td>4</td><td>16</td><td>37</td><td>49</td></tr>
+                        <tr><td>14</td><td class="team-name">A.D Cabanillas</td><td>22</td><td>26</td><td>6</td><td>4</td><td>16</td><td>25</td><td>53</td></tr>
+                      <tr><td>15</td><td class="team-name">C.D Cadreita</td><td>18</td><td>26</td><td>5</td><td>3</td><td>18</td><td>23</td><td>65</td></tr>
+                      <tr><td>16</td><td class="team-name">C.A Huracan</td><td>18</td><td>26</td><td>4</td><td>6</td><td>16</td><td>26</td><td>62</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <p class="tabla">(PTS):Puntos Logrados</p>
+        <p class="tabla">(J):Partidos Jugados</p>
+        <p class="tabla">(G):Partidos Ganados</p>
+        <p class="tabla">(E):Partidos Empatados</p>
+        <p class="tabla">(P):Partidos Perdidos</p>
+        <p class="tabla">(F):Goles A Favor</p>
+        <p class="tabla">(C):Goles En Contra</p>
+    </section>
+    <section id="jugadores" class="view-section hidden">
+        <div class="header-flex">
+            <h2>CUERPO TÉCNICO Y PLANTILLA</h2>
+            <button class="back-link" onclick="mostrarSeccion('inicio')">VOLVER</button>
+        </div>
+        <div class="players-dark-grid" style="margin-bottom: 50px;">
+            <div class="player-box coach-box">
+                <span class="num">DT</span>
+                <div class="p-data">
+                    <strong>Miguel Albizu</strong><p class="position">Entrenador Principal</p>
+                    <div class="stats-block"><p class="stat-line">Segundo año en el equipo</p></div>
+                </div>
+            </div>
+            <div class="player-box coach-box">
+                <span class="num">AT</span>
+                <div class="p-data">
+                    <strong>Iosu Ruiz de Larrinaga</strong><p class="position">Segundo Entrenador</p>
+                    <div class="stats-block"><p class="stat-line"></p></div>
+                </div>
+            </div>
+        </div>
+        <div class="players-dark-grid">
+            <div class="player-box keeper"><span class="num">1</span><div class="p-data"><strong>Julen Urigoitia</strong><p class="position">Portero</p><div class="stats-block"><p class="stat-line">Partidos jugados: 13</p><p class="stat-line">Goles recibidos: 23</p></div></div></div>
+            <div class="player-box"><span class="num">2</span><div class="p-data"><strong>Ibai Zabala</strong><p class="position">Lateral</p><div class="stats-block"><p class="stat-line">Partidos jugados: 20</p><p class="stat-line">Goles: 1</p></div></div></div>
+            <div class="player-box"><span class="num">3</span><div class="p-data"><strong>Asier Arrastia</strong><p class="position">Lateral</p><div class="stats-block"><p class="stat-line">Partidos jugados: 27</p><p class="stat-line">Goles: 0</p></div></div></div>
+            <div class="player-box"><span class="num">4</span><div class="p-data"><strong>Borja Martinez De Eulate</strong><p class="position">Defensa-2008</p><div class="stats-block"><p class="stat-line">Partidos jugados: 26</p><p class="stat-line">Goles: 3</p></div></div></div>
+            <div class="player-box"><span class="num">5</span><div class="p-data"><strong>Gaizka Portillo</strong><p class="position">Defensa</p><div class="stats-block"><p class="stat-line">Partidos jugados: 26</p><p class="stat-line">Goles: 7</p></div></div></div>
+            <div class="player-box"><span class="num">6</span><div class="p-data"><strong>Yeray Lopez de Dicastillo</strong><p class="position">Medio</p><div class="stats-block"><p class="stat-line">Partidos jugados: 26</p><p class="stat-line">Goles: 1</p></div></div></div>
+           <div class="player-box"><span class="num">7</span><div class="p-data"><strong>Momoudu Demba</strong><p class="position">Extremo</strong></p><div class="stats-block"><p class="stat-line">Partidos jugados: 26</p><p class="stat-line">Goles: 0</p></div></div></div>
+            <div class="player-box"><span class="num">8</span><div class="p-data"><strong>Babil Barricart</strong></p><div class="stats-block"><p class="stat-line">Partidos jugados: 23</p><p class="stat-line">Goles: 3</p></div></div></div>
+            <div class="player-box"><span class="num">9</span><div class="p-data"><strong>Raul Lopez de Goicoechea</strong><p class="position">Delantero</p><div class="stats-block"><p class="stat-line">Partidos jugados: 19</p><p class="stat-line">Goles: 13</p></div></div></div>
+            <div class="player-box"><span class="num">10</span><div class="p-data"><strong>Ivan Garayo</strong><p class="position">Medio ofensivo</p><div class="stats-block"><p class="stat-line">Partidos jugados: 14</p><p class="stat-line">Goles: 3</p></div></div></div>
+            <div class="player-box"><span class="num">11</span><div class="p-data"><strong>Javier Pereda</strong><p class="position">Extremo</p><div class="stats-block"><p class="stat-line">Partidos jugados: 28</p><p class="stat-line">Goles: 3</p></div></div></div>
+            <div class="player-box"><span class="num">12</span><div class="p-data"><strong>Ugaitz Iturri</strong><p class="position">Lateral</p><div class="stats-block"><p class="stat-line">Partidos jugados: 18</p><p class="stat-line">Goles: 0</p></div></div></div>
+            <div class="player-box keeper"><span class="num">13</span><div class="p-data"><strong>Sergio Zaratiegui</strong><p class="position">Portero</p><div class="stats-block"><p class="stat-line">Partidos jugados: 16</p><p class="stat-line">Goles recibidos: 20</p></div></div></div>
+            <div class="player-box"><span class="num">14</span><div class="p-data"><strong>Gaizka Sanz de Galdeano</strong><p class="position">Medio</p><div class="stats-block"><p class="stat-line">Partidos jugados: 30</p><p class="stat-line">Goles: 1</p></div></div></div>
+            <div class="player-box"><span class="num">15</span><div class="p-data"><strong>Aritz Hazas</strong><p class="position">Defensa</p><div class="stats-block"><p class="stat-line">Partidos jugados: 19</p><p class="stat-line">Goles: 0</p></div></div></div>
+            <div class="player-box"><span class="num">16</span><div class="p-data"><strong>Xabier Garrido</strong><p class="position">Medio</p><div class="stats-block"><p class="stat-line">Partidos jugados: 22</p><p class="stat-line">Goles: 2</p></div></div></div>
+            <div class="player-box"><span class="num">17</span><div class="p-data"><strong>Ander portillo</strong><p class="position">Delantero</p><div class="stats-block"><p class="stat-line">Partidos jugados: 28</p><p class="stat-line">Goles: 5</p></div></div></div>
+            <div class="player-box"><span class="num">18</span><div class="p-data"><strong>Alvaro Huarte</strong><p class="position">Delantero</p><div class="stats-block"><p class="stat-line">Partidos jugados: 16</p><p class="stat-line">Goles: 0</p></div></div></div>
+            <div class="player-box"><span class="num">19</span><div class="p-data"><strong>Gabriel Francois</strong><p class="position">Extremo</p><div class="stats-block"><p class="stat-line">Partidos jugados: 6</p><p class="stat-line">Goles: 0</p></div></div></div>
+            <div class="player-box"><span class="num">20</span><div class="p-data"><strong>Ebraima Manjang</strong><p class="position">Defensa</p><div class="stats-block"><p class="stat-line">Partidos jugados: 9</p><p class="stat-line">Goles: 0</p></div></div></div>
+            <div class="player-box"><span class="num">21</span><div class="p-data"><strong>Pablo Martinez de Eulate</strong><p class="position">Lateral</p><div class="stats-block"><p class="stat-line">Partidos jugados: 3</p><p class="stat-line">Goles: 0</p></div></div></div>
+            <div class="player-box"><span class="num">22</span><div class="p-data"><strong>Adrian Sanz</strong><p class="position">Defensa</p><div class="stats-block"><p class="stat-line">Partidos jugados: 17</p><p class="stat-line">Goles: 0</p></div></div></div>
+  <div class="player-box"><span class="num">23</span><div class="p-data"><strong>Pablo Anguas</strong><p class="position">Medio</p><div class="stats-block"><p class="stat-line">Partidos jugados: 8</p><p class="stat-line">Goles: 0</p></div></div></div>
+        </div>
+    </section>
+    <section id="resultados" class="view-section hidden">
+        <div class="header-flex">
+            <h2>RESUMEN DE JORNADAS</h2>
+            <button class="back-link" onclick="mostrarSeccion('inicio')">VOLVER</button>
+        </div>
+        <div class="table-wrapper">
+            <table class="dark-table">
+                <thead>
+                    <tr><th>JDA</th><th>RIVAL</th><th>RESULTADO</th><th>GOLES</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>San Andres(V)</td><td>0 - 4</td><td>Ivan Garayo X2<br>Ander Portillo<br>Javier Pereda</td></tr>
+                    <tr><td>2</td><td>Zarramonza(L)</td><td>1 - 2</td><td>Borja Martinez</td></tr>
+                    <tr><td>3</td><td>Aluvion(V)</td><td>6 - 0</td><td>N/A</td></tr>
+                    <tr><td>4</td><td>Corellano(L)</td><td>0 - 3</td><td>N/A</td></tr>
+                    <tr><td>5</td><td>Cadreita(V)</td><td>1 - 0</td><td>N/A</td></tr>
+                    <tr><td>6</td><td>Huracan(L)</td><td>4 - 1</td><td>Alejandro Diaz(GP)<br>Ander Portillo<br>Babil Barricart<br>Javier Barbarin(GP)</td></tr>
+                    <tr><td>7</td><td>Azkoyen(L)</td><td>5 - 4</td><td>Borja Martinez<br>Ander Portillo X2<br>Gaizka Sanz de Galdeano<br>David Losantos(GP)</td></tr>
+                    <tr><td>8</td><td>Milagres(V)</td><td>0 - 2</td><td>Raul Lopez de Goicoechea X2</td></tr>
+                    <tr><td>9</td><td>Valterrano(L)</td><td>1 - 1</td><td>Raul Lopez de Goicoechea</td></tr>
+                    <tr><td>10</td><td>Sesma(V)</td><td>3 - 0</td><td>N/A</td></tr>
+                    <tr><td>11</td><td>Alesves(L)</td><td>1 - 1</td><td>Ivan Garayo (P)</td></tr>
+                    <tr><td>12</td><td>Larrate(V)</td><td>2 - 2</td><td>Raul Lopez de Goicoechea X2</td></tr>
+                    <tr><td>13</td><td>Cabanillas(L)</td><td>3 - 0</td><td>Javier Pereda<br>Raul Lopez de Goicoechea<br>Angel Zardoya(GP)</td></tr>
+                    <tr><td>14</td><td>Arenas(V)</td><td>1 - 0</td> 
+<td>N/A</td></tr>
+                    <tr><td>15</td><td>Cirbonero(L)</td><td>4 - 1</td><td>Raul Lopez de Goicoechea X3<br>Ibai Zabala</td></tr>
+                    <tr><td>16</td><td>San Andres(L)</td><td>3 - 4</td><td>Ander Portillo<br>Babil Barricart<br>Pablo Martinez (P)</td></tr>
+                    <tr><td>17</td><td>Zarramonza(V)</td><td>2 - 0</td><td>N/A</td></tr>
+                    <tr><td>18</td><td>Aluvion(L)</td><td>1 - 2</td><td>Xavier Garrido</td></tr>
+                    <tr><td>19</td><td>Corellano(V)</td><td>1 - 1</td><td>Gaizka Portillo</td></tr>
+                    <tr><td>20</td><td>Cadreita(L)</td><td>2 - 0</td><td>Gaizka Portillo<br>Yeray Lopez De Dicastillo</td></tr>
+                    <tr><td>21</td><td>Huracan(V)</td><td>1 - 1</td><td>Javier Pereda</td></tr>
+                    <tr><td>22</td><td>Azcoyen(V)</td><td>1 - 1</td><td>Gaizka Portillo</td></tr>
+                    <tr><td>23</td><td>Milagres(L)</td><td>2 - 2</td><td>Gaizka Portillo X2</td></tr>
+                    <tr><td>24</td><td>Valterrano(V)</td><td>0 - 1</td><td>N/A</td></tr>
+                    <tr><td>25</td><td>Sesma(L)</td><td>3 - 1</td><td>Gaizka Portillo<br>Xavier Garrido<br>Aritz Marco (GP)</td></tr>
+                    <tr><td>26</td><td>Alesves(V)</td><td>2 - 1</td><td>Gaizka Portillo</td></tr>
+                   <tr><td>27</td><td>Larrate(L)</td><td>0 - 0</td><td>Pendiente</td></tr>
+                  <tr><td>28</td><td>Cabanillas(V)</td><td>0 - 0</td><td>Pendiente</td></tr>
+                  <tr><td>29</td><td>Arenas(L)</td><td>0 - 0</td><td>Pendiente</td></tr>
+                  <tr><td>30</td><td>Cribonero(V)</td><td>0 - 0</td><td>Pendiente</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="resultado">(L):Local</p>
+        <p class="cantera">(V):Visitante</p>
+        <p class="cantera">(P):Penalti</p>
+        <p class="cantera">(GP):Gol en propia</p>
+    </section>
+</main>
+<footer class="main-footer">
+    <p>C.D. IDOYA &copy; 2026 | Oteiza de la Solana</p>
+  <p class="final">Web no oficial gestionada por aficionados</p>
+    <p class="final">Creador de la Pagina: Iker Cambra Diaz</p>
+  <p class="final">Todos los derechos del escudo y marca pertenecen a el Club deportivo Idoya</p>
+</footer>
+</div>
+
+<div id="cat-segundo" class="team-container hidden">
+   <header class="navbar-dark">
+    <div class="nav-container">
+        <div class="brand">
+            <span class="logo-accent">CD</span> IDOYA
+        </div>
+        <nav class="links">
+            <button class="nav-btn-main" onclick="mostrarSeccion('inicio')">INICIO</button>
+            <a href="https://www.futnavarra.es/pnfg/NPcd/NFG_VisEquipos?cod_primaria=1000119&Codigo_Equipo=6461" 
+   target="_blank" 
+   rel="noopener noreferrer">
+   <button class="nav-btn-main" type="button">FNF</button>
+</a>
+        </nav>
+    </div>
+</header>
+<main class="container">
+    <section id="inicio" class="view-section">
+        <div class="hero-dark">
+            <div class="hero-inner">
+                <span class="badge">Oficial</span>
+                <h1>CLUB DEPORTIVO IDOYA B</h1>
+                <p>Pasión, Esfuerzo y Corazón en Oteiza de la Solana.</p>
+                <div class="line-decorator"></div>
+            </div>
+        </div>
+        <div class="summary-cards">
+            <div class="glass-card">
+                <h3>El Club</h3>
+                <p>El Club Deportivo Idoya representa la identidad de nuestro pueblo. Fundado con el objetivo de promover el deporte, hoy competimos con orgullo en cada jornada defendiendo nuestros valores y la historia de Oteiza de la Solana.</p>
+            </div>
+            <div class="glass-card">
+                <h3>Estadio Iturtxipia</h3>
+                <p>Nuestra casa, donde la afición se hace sentir y el equipo entrega todo por los colores azul y rojo en cada disputa de balón. Un lugar de encuentro para toda la comunidad de Oteiza.</p>
+            </div>
+        </div>
+        <div class="shortcut-menu">
+            <button class="action-card" onclick="mostrarSeccion('jugadores')">
+                <div class="icon">👥</div>
+                <span class="card-label">PLANTILLA</span>
+                <small>27 Integrantes</small>
+            </button>
+            <button class="action-card" onclick="mostrarSeccion('resultados')">
+                <div class="icon">📈</div>
+                <span class="card-label">RESULTADOS</span>
+                <small>26 Jornadas</small>
+            </button>
+        </div>
+        <div class="classification-container">
+            <h2 class="section-title-alt">CLASIFICACIÓN OFICIAL</h2>
+            <div class="table-wrapper">
+                <table class="dark-table classification">
+                    <thead>
+                        <tr>
+                            <th>POS</th>
+                            <th>EQUIPO</th>
+                            <th>PTS</th>
+                            <th>J</th>
+                            <th>G</th>
+                            <th>E</th>
+                            <th>P</th>
+                            <th>F</th>
+                            <th>C</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td class="team-name">C.D Funes</td><td>62</td><td>24</td><td>19</td><td>5</td><td>0</td><td>77</td><td>16</td></tr>
+                        <tr><td>2</td><td class="team-name">C.A Marcilla Aurora</td><td>55</td><td>24</td><td>17</td><td>4</td><td>3</td><td>60</td><td>20</td></tr>
+                        <tr><td>3</td><td class="team-name">C.D Izarra </td><td>50</td><td>24</td><td>15</td><td>5</td><td>4</td><td>59</td><td>25</td></tr>
+                        <tr><td>4</td><td class="team-name">C.D. Falcesino</td><td>49</td><td>24</td><td>15</td><td>4</td><td>5</td><td>63</td><td>27</td></tr>
+                        <tr><td>5</td><td class="team-name">C.D. Urantzia</td><td>48</td><td>24</td><td>15</td><td>3</td><td>6</td><td>82</td><td>28</td></tr>
+                        <tr><td>6</td><td class="team-name">Castillo F.C</td><td>47</td><td>24</td><td>15</td><td>2</td><td>7</td><td>48</td><td>30</td></tr>
+                        <tr><td>7</td><td class="team-name">C.D. Ondalan "B"</td><td>37</td><td>24</td><td>11</td><td>4</td><td>9</td><td>54</td><td>49</td></tr>
+                        <tr><td>8</td><td class="team-name">C.D. Lodosa</td><td>27</td><td>24</td><td>7</td><td>6</td><td>11</td><td>35</td><td>47</td></tr>
+                        <tr><td>9</td><td class="team-name">C.D Peña Azagresa</td><td>26</td><td>24</td><td>7</td><td>5</td><td>12</td><td>37</td><td>52</td></tr>
+                        <tr><td>10</td><td class="team-name">Urbasa</td><td>24</td><td>24</td><td>7</td><td>3</td><td>14</td><td>38</td><td>67</td></tr>
+                        <tr><td>11</td><td class="team-name">C.D. San Adrian "B"</td><td>19</td><td>24</td><td>5</td><td>4</td><td>15</td><td>25</td><td>60</td></tr>
+                        <tr><td>12</td><td class="team-name">C.D. Zarramonza "B"</td><td>15</td><td>24</td><td>4</td><td>3</td><td>17</td><td>30</td><td>55</td></tr>
+                        <tr><td>13</td><td class="team-name">C.D Carcar</td><td>15</td><td>24</td><td>3</td><td>0</td><td>19</td><td>23</td><td>92</td></tr>
+                        <tr class="highlight-idoya"><td>14</td><td class="team-idoya">C.D. IDOYA</td><td>5</td><td>24</td><td>1</td><td>2</td><td>21</td><td>16</td><td>79</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <p class="tabla">(PTS):Puntos Logrados</p>
+        <p class="tabla">(J):Partidos Jugados</p>
+        <p class="tabla">(G):Partidos Ganados</p>
+        <p class="tabla">(E):Partidos Empatados</p>
+        <p class="tabla">(P):Partidos Perdidos</p>
+        <p class="tabla">(F):Goles A Favor</p>
+        <p class="tabla">(C):Goles En Contra</p>
+    </section>
+    <section id="jugadores" class="view-section hidden">
+        <div class="header-flex">
+            <h2>CUERPO TÉCNICO Y PLANTILLA</h2>
+            <button class="back-link" onclick="mostrarSeccion('inicio')">VOLVER</button>
+        </div>
+        <div class="players-dark-grid" style="margin-bottom: 50px;">
+            <div class="player-box coach-box">
+                <span class="num">DT</span>
+                <div class="p-data">
+                    <strong>Victor Larreta</strong><p class="position">Entrenador Principal</p>
+                    <div class="stats-block"><p class="stat-line"></p></div>
+                </div>
+            </div>
+            <div class="player-box coach-box">
+                <span class="num">AT</span>
+                <div class="p-data">
+                    <strong>Erik Lopez De Dicastillo</strong><p class="position">Segundo Entrenador</p>
+                    <div class="stats-block"><p class="stat-line"></p></div>
+                </div>
+            </div>
+        </div>
+        <div class="players-dark-grid">
+            <div class="player-box keeper"><span class="num">1</span><div class="p-data"><strong>Diego Meoqui</strong><p class="position">Portero</p><div class="stats-block"><p class="stat-line">Partidos jugados: 14</p><p class="stat-line">Goles recibidos: 42</p></div></div></div>
+            <div class="player-box"><span class="num">2</span><div class="p-data"><strong>Aitor Galdeano</strong><p class="position">Lateral</p><div class="stats-block"><p class="stat-line">Partidos jugados: 17</p><p class="stat-line">Goles: 0</p></div></div></div>
+            <div class="player-box"><span class="num">3</span><div class="p-data"><strong>Gonzalo Apesteguia</strong><p class="position">Lateral</p><div class="stats-block"><p class="stat-line">Partidos jugados: 20</p><p class="stat-line">Goles: 2</p></div></div></div>
+            <div class="player-box"><span class="num">4</span><div class="p-data"><strong>Mateo Guembe</strong><p class="position">Defensa</p><div class="stats-block"><p class="stat-line">Partidos jugados: 20</p><p class="stat-line">Goles: 0</p></div></div></div>
+            <div class="player-box"><span class="num">5</span><div class="p-data"><strong>Jaime Martinez De Eulate</strong><p class="position">Defensa</p><div class="stats-block"><p class="stat-line">Partidos jugados: 21</p><p class="stat-line">Goles: 0</p></div></div></div>
+            <div class="player-box"><span class="num">6</span><div class="p-data"><strong>Jorge Bugallo</strong><p class="position">Medio</p><div class="stats-block"><p class="stat-line">Partidos jugados: 19</p><p class="stat-line">Goles:2</p></div></div></div>
+            <div class="player-box"><span class="num">7</span><div class="p-data"><strong>Iñigo Blanco</strong><p class="position">Extremo</p><div class="stats-block"><p class="stat-line">Partidos jugados: 19</p><p class="stat-line">Goles: 0</p></div></div></div>
+            <div class="player-box"><span class="num">8</span><div class="p-data"><strong>Mikel Lara</strong><p class="position">Medio</p><div class="stats-block"><p class="stat-line">Partidos jugados: 22</p><p class="stat-line">Goles: 0</p></div></div></div>
+            <div class="player-box"><span class="num">9</span><div class="p-data"><strong>Raul Jordana</strong><p class="position">Delantero</p><div class="stats-block"><p class="stat-line">Partidos jugados: 20</p><p class="stat-line">Goles: 3</p></div></div></div>
+            <div class="player-box"><span class="num">10</span><div class="p-data"><strong>Gorka Suberviola</strong><p class="position">Medio ofensivo</p><div class="stats-block"><p class="stat-line">Partidos jugados: 25</p><p class="stat-line">Goles: 2</p></div></div></div>
+            <div class="player-box"><span class="num">11</span><div class="p-data"><strong>Gaizka Sanz De Galdeano</strong><p class="position">Extremo</p><div class="stats-block"><p class="stat-line">Partidos jugados: 30</p><p class="stat-line">Goles: 1</p></div></div></div>
+            <div class="player-box"><span class="num">12</span><div class="p-data"><strong>Aimar Cenamor</strong><p class="position">Lateral</p><div class="stats-block"><p class="stat-line">Partidos jugados: 11</p><p class="stat-line">Goles: 0</p></div></div></div>
+            <div class="player-box keeper"><span class="num">13</span><div class="p-data"><strong>Joseba Gomez</strong><p class="position">Portero</p><div class="stats-block"><p class="stat-line">Partidos jugados: 10</p><p class="stat-line">Goles recibidos: 37</p></div></div></div>
+            <div class="player-box"><span class="num">14</span><div class="p-data"><strong>Unai Artieada</strong><p class="position">Medio</p><div class="stats-block"><p class="stat-line">Partidos jugados: 22</p><p class="stat-line">Goles: 0</p></div></div></div>
+            <div class="player-box"><span class="num">15</span><div class="p-data"><strong>Daniel Etayo</strong><p class="position">Defensa</p><div class="stats-block"><p class="stat-line">Partidos jugados: 6</p><p class="stat-line">Goles: 1</p></div></div></div>
+            <div class="player-box"><span class="num">16</span><div class="p-data"><strong>Kevin Allauca</strong><p class="position">Medio</p><div class="stats-block"><p class="stat-line">Partidos jugados: 8</p><p class="stat-line">Goles: 0</p></div></div></div>
+            <div class="player-box"><span class="num">17</span><div class="p-data"><strong>Pablo Urabayen</strong><p class="position">Delantero</p><div class="stats-block"><p class="stat-line">Partidos jugados: 11</p><p class="stat-line">Goles: 0</p></div></div></div>
+            <div class="player-box"><span class="num">18</span><div class="p-data"><strong>Iker Lopez De Dicastillo</strong><p class="position">Delantero</p><div class="stats-block"><p class="stat-line">Partidos jugados: 5</p><p class="stat-line">Goles: 0</p></div></div></div>
+            <div class="player-box"><span class="num">19</span><div class="p-data"><strong>Iñaki Etayo</strong><p class="position">Extremo</p><div class="stats-block"><p class="stat-line">Partidos jugados: 14</p><p class="stat-line">Goles: 3</p></div></div></div>
+            <div class="player-box"><span class="num">20</span><div class="p-data"><strong>Iñigo Urmeneta</strong><p class="position">Defensa</p><div class="stats-block"><p class="stat-line">Partidos jugados: 13</p><p class="stat-line">Goles: 0</p></div></div></div>
+            <div class="player-box"><span class="num">21</span><div class="p-data"><strong>Markel Ros</strong><p class="position">Medio</p><div class="stats-block"><p class="stat-line">Partidos jugados: 12</p><p class="stat-line">Goles: 1</p></div></div></div>
+            <div class="player-box"><span class="num">22</span><div class="p-data"><strong>Juan Quiñonez</strong><p class="position">Lateral</p><div class="stats-block"><p class="stat-line">Partidos jugados: 2</p><p class="stat-line">Goles: 0</p></div></div></div>
+            <div class="player-box"><span class="num">23</span><div class="p-data"><strong>Borja Lopez</strong><p class="position">Medio</p><div class="stats-block"><p class="stat-line">Partidos jugados: 9</p><p class="stat-line">Goles: 0</p></div></div></div>
+            <div class="player-box"><span class="num">24</span><div class="p-data"><strong>Iker Ganuza</strong><p class="position">Extremo</p><div class="stats-block"><p class="stat-line">Partidos jugados: 6</p><p class="stat-line">Goles: 0</p></div></div></div>
+            <div class="player-box"><span class="num">25</span><div class="p-data"><strong>Kevin Calapiña</strong><p class="position">Defensa</p><div class="stats-block"><p class="stat-line">Partidos jugados: 16</p><p class="stat-line">Goles: 0</p></div></div></div>
+        </div>
+    </section>
+    <section id="resultados" class="view-section hidden">
+        <div class="header-flex">
+            <h2>RESUMEN DE JORNADAS</h2>
+            <button class="back-link" onclick="mostrarSeccion('inicio')">VOLVER</button>
+        </div>
+        <div class="table-wrapper">
+            <table class="dark-table">
+                <thead>
+                    <tr><th>JDA</th><th>RIVAL</th><th>RESULTADO</th><th>GOLES</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>Peña Azagresa(V)</td><td>1 - 0</td><td>N/A</td></tr>
+                    <tr><td>2</td><td>Urbasa(L)</td><td>1 - 4</td><td>Iñaki Etayo</td></tr>
+                    <tr><td>3</td><td>Salesianos(V)</td><td>1 - 0</td><td>N/A</td></tr>
+                    <tr><td>4</td><td>Falcesino(L)</td><td>1 - 3</td><td>Jorge Bugallo</td></tr>
+                    <tr><td>5</td><td>Funes(V)</td><td>3 - 0</td><td>N/A</td></tr>
+                    <tr><td>6</td><td>Castillo(L)</td><td>1 - 2</td><td>Javier Pereda</td></tr>
+                    <tr><td>7</td><td>Marcilla Aurora(L)</td><td>1 - 2</td><td>Raul Jornada</td></tr>
+                    <tr><td>8</td><td>Carcar(V)</td><td>0 - 2</td><td>Gorka Suberviola</td></tr>
+                    <tr><td>9</td><td>Urantzia(L)</td><td>0 - 9</td><td>N/A</td></tr>
+                    <tr><td>10</td><td>Ondalan(V)</td><td>3 - 1</td><td>Jorge Bugallo</td></tr>
+                    <tr><td>11</td><td>San Adrian(L)</td><td>1 - 3</td><td>Gonzalo Apesteguia</td></tr>
+                    <tr><td>12</td><td>Lodosa(V)</td><td>5 - 1</td><td>Iñaki Etayo</td></tr>
+                    <tr><td>13</td><td>Izarra(L)</td><td>0 - 6</td><td>N/A</td></tr>
+                    <tr><td>14</td><td>Peña Azagresa(L)</td><td>0 - 4</td><td>N/A</td></tr>
+                    <tr><td>15</td><td>Urbasa(V)</td><td>3 - 3</td><td>Iñaki Etayo<br>Javier Pereda<br>Markel Ros</td></tr>
+                    <tr><td>16</td><td>Zarramonza(L)</td><td>1 - 1</td><td>Raul Jordana</td></tr>
+                    <tr><td>17</td><td>Falcesino(V)</td><td>3 - 1</td><td>Raul Jordana</td></tr>
+                    <tr><td>18</td><td>Funes(L)</td><td>1 - 7</td><td>Gonzalo Apesteguia</td></tr>
+                    <tr><td>19</td><td>Castillo(V)</td><td>3 - 0</td><td>N/A</td></tr>
+                    <tr><td>20</td><td>Marcilla Aurora(V)</td><td>5 - 0</td><td>N/A</td></tr>
+                    <tr><td>21</td><td>Carcar(L)</td><td>1 - 2</td><td>Iñaki Etayo</td></tr>
+                    <tr><td>22</td><td>Urantzia(V)</td><td>6 - 0</td><td>N/A</td></tr>
+                    <tr><td>23</td><td>Ondalan(L)</td><td>0 - 2</td><td>N/A</td></tr>
+                    <tr><td>24</td><td>San Adrian(V)</td><td>1 - 0</td><td>N/A</td></tr>
+                    <tr><td>25</td><td>Lodosa(L)</td><td>0 - 0</td><td>Pendiente</td></tr>
+                    <tr><td>26</td><td>Izarra(V)</td><td>0 - 0</td><td>Pendiente</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="resultado">(L):Local</p>
+        <p class="cantera">(V):Visitante</p>
+        <p class="cantera">(P):Penalti</p>
+        <p class="cantera">(GP):Gol en propia</p>
+    </section>
+</main>
+<footer class="main-footer">
+    <p>C.D. IDOYA &copy; 2026 | Oteiza de la Solana</p>
+  <p class="final">Web no oficial gestionada por aficionados</p>
+    <p class="final">Creador de la Pagina: Iker Cambra Diaz</p>
+  <p class="final">Todos los derechos del escudo y marca pertenecen a el Club deportivo Idoya</p>
+</footer>
+    </div>
+
+<div id="cat-juvenil" class="team-container hidden">
+  <header class="navbar-dark">
+    <div class="nav-container">
+        <div class="brand">
+            <span class="logo-accent">CD</span> IDOYA
+        </div>
+        <nav class="links">
+            <button class="nav-btn-main" onclick="mostrarSeccion('inicio')">INICIO</button>
+            <a href="https://www.futnavarra.es/pnfg/NPcd/NFG_VisEquipos?cod_primaria=1000119&Codigo_Equipo=6461" 
+   target="_blank" 
+   rel="noopener noreferrer">
+   <button class="nav-btn-main" type="button">FNF</button>
+</a>
+        </nav>
+    </div>
+</header>
+<main class="container">
+    <section id="inicio" class="view-section">
+        <div class="hero-dark">
+            <div class="hero-inner">
+                <span class="badge">Oficial</span>
+                <h1>IDOYA JUVENIL</h1>
                 <p>Pasión, Esfuerzo y Corazón en Oteiza de la Solana.</p>
                 <div class="line-decorator"></div>
             </div>
@@ -130,33 +538,32 @@
             </div>
         </div>
         <div class="players-dark-grid">
-            <div class="player-box keeper"><span class="num">1</span><div class="p-data"><strong>Nahun Ocio</strong><p class="position">Portero-2007</p><div class="stats-block"><p class="stat-line">Partidos jugados: 13</p><p class="stat-line">Goles recibidos: 10</p></div></div></div>
-            <div class="player-box"><span class="num">2</span><div class="p-data"><strong>Iker Legaria</strong><p class="position">Lateral-2007</p><div class="stats-block"><p class="stat-line">Partidos jugados: 17</p><p class="stat-line">Goles: 1</p></div></div></div>
-            <div class="player-box"><span class="num">3</span><div class="p-data"><strong>Bruno San Martin</strong><p class="position">Lateral-2008</p><div class="stats-block"><p class="stat-line">Partidos jugados: 26</p><p class="stat-line">Goles: 9</p></div></div></div>
-            <div class="player-box"><span class="num">4</span><div class="p-data"><strong>Iker Ekai (C)</strong><p class="position">Defensa-2008</p><div class="stats-block"><p class="stat-line">Partidos jugados: 18</p><p class="stat-line">Goles: 1</p></div></div></div>
-            <div class="player-box"><span class="num">5</span><div class="p-data"><strong>Unai Berrueta (C)</strong><p class="position">Defensa-2009</p><div class="stats-block"><p class="stat-line">Partidos jugados: 18</p><p class="stat-line">Goles: 4</p></div></div></div>
-            <div class="player-box"><span class="num">6</span><div class="p-data"><strong>Iker San Martin</strong><p class="position">Medio-2008</p><div class="stats-block"><p class="stat-line">Partidos jugados: 29</p><p class="stat-line">Goles: 7</p></div></div></div>
-            <div class="player-box"><span class="num">7</span><div class="p-data"><strong>Eneko Gaston (C)</strong><p class="position">Extremo-2008</p><div class="stats-block"><p class="stat-line">Partidos jugados: 23</p><p class="stat-line">Goles: 5</p></div></div></div>
-            <div class="player-box"><span class="num">8</span><div class="p-data"><strong>Unax Ripa (C)</strong><p class="position">Medio-2009</p><div class="stats-block"><p class="stat-line">Partidos jugados: 10</p><p class="stat-line">Goles: 3</p></div></div></div>
-            <div class="player-box"><span class="num">9</span><div class="p-data"><strong>Martin Esparza (C)</strong><p class="position">Delantero-2008</p><div class="stats-block"><p class="stat-line">Partidos jugados: 15</p><p class="stat-line">Goles: 3</p></div></div></div>
-            <div class="player-box"><span class="num">10</span><div class="p-data"><strong>Markel San Martin (C)</strong><p class="position">Medio ofensivo-2008</p><div class="stats-block"><p class="stat-line">Partidos jugados: 23</p><p class="stat-line">Goles: 27</p></div></div></div>
-            <div class="player-box"><span class="num">11</span><div class="p-data"><strong>Unai Zalduendo (C)</strong><p class="position">Extremo-2008</p><div class="stats-block"><p class="stat-line">Partidos jugados: 26</p><p class="stat-line">Goles: 10</p></div></div></div>
-            <div class="player-box"><span class="num">12</span><div class="p-data"><strong>Iosu Goñi (C)</strong><p class="position">Lateral-2009</p><div class="stats-block"><p class="stat-line">Partidos jugados: 16</p><p class="stat-line">Goles: 0</p></div></div></div>
-            <div class="player-box keeper"><span class="num">13</span><div class="p-data"><strong>Iker Cambra (C)</strong><p class="position">Portero-2009</p><div class="stats-block"><p class="stat-line">Partidos jugados: 13</p><p class="stat-line">Goles recibidos: 22</p></div></div></div>
-            <div class="player-box"><span class="num">14</span><div class="p-data"><strong>Hodei Ekai</strong><p class="position">Medio-2007</p><div class="stats-block"><p class="stat-line">Partidos jugados: 18</p><p class="stat-line">Goles: 1</p></div></div></div>
-            <div class="player-box"><span class="num">15</span><div class="p-data"><strong>Unai Marquinez (C)</strong><p class="position">Defensa-2008</p><div class="stats-block"><p class="stat-line">Partidos jugados: 21</p><p class="stat-line">Goles: 1</p></div></div></div>
-            <div class="player-box"><span class="num">16</span><div class="p-data"><strong>Oihan Kamine (C)</strong><p class="position">Medio-2008</p><div class="stats-block"><p class="stat-line">Partidos jugados: 11</p><p class="stat-line">Goles: 0</p></div></div></div>
-            <div class="player-box"><span class="num">17</span><div class="p-data"><strong>Kepa Leza</strong><p class="position">Delantero-2007</p><div class="stats-block"><p class="stat-line">Partidos jugados: 26</p><p class="stat-line">Goles: 6</p></div></div></div>
-            <div class="player-box"><span class="num">18</span><div class="p-data"><strong>Jon Larrayoz (C)</strong><p class="position">Delantero-2009</p><div class="stats-block"><p class="stat-line">Partidos jugados: 24</p><p class="stat-line">Goles: 5</p></div></div></div>
-            <div class="player-box"><span class="num">19</span><div class="p-data"><strong>Lucas Sanz de Galdeano</strong><p class="position">Extremo-2009</p><div class="stats-block"><p class="stat-line">Partidos jugados: 20</p><p class="stat-line">Goles: 2</p></div></div></div>
-            <div class="player-box"><span class="num">20</span><div class="p-data"><strong>Ioar Fernandez</strong><p class="position">Defensa-2009</p><div class="stats-block"><p class="stat-line">Partidos jugados: 19</p><p class="stat-line">Goles: 1</p></div></div></div>
-            <div class="player-box"><span class="num">21</span><div class="p-data"><strong>Javi Echavarri(C)</strong><p class="position">Lateral-2008</p><div class="stats-block"><p class="stat-line">Partidos jugados: 14</p><p class="stat-line">Goles: 1</p></div></div></div>
-            <div class="player-box"><span class="num">22</span><div class="p-data"><strong>Beñat Cayetano</strong><p class="position">Lateral-2007</p><div class="stats-block"><p class="stat-line">Partidos jugados: 8</p><p class="stat-line">Goles: 1</p></div></div></div>
-            <div class="player-box"><span class="num">23</span><div class="p-data"><strong>Urko Cagigal (C)</strong><p class="position">Medio-2009</p><div class="stats-block"><p class="stat-line">Partidos jugados: 21</p><p class="stat-line">Goles: 2</p></div></div></div>
-            <div class="player-box"><span class="num">24</span><div class="p-data"><strong>Iker Etayo</strong><p class="position">Extremo-2008</p><div class="stats-block"><p class="stat-line">Partidos jugados: 19</p><p class="stat-line">Goles: 1</p></div></div></div>
-            <div class="player-box"><span class="num">25</span><div class="p-data"><strong>Alex Lacalle (C)</strong><p class="position">Defensa-2008</p><div class="stats-block"><p class="stat-line">Partidos jugados: 6</p><p class="stat-line">Goles: 1</p></div></div></div>
+            <div class="player-box keeper"><span class="num">1</span><div class="p-data"><strong>Nahun Ocio</strong><p class="position">Portero</p><div class="stats-block"><p class="stat-line">Partidos jugados: 13</p><p class="stat-line">Goles recibidos: 10</p></div></div></div>
+            <div class="player-box"><span class="num">2</span><div class="p-data"><strong>Iker Legaria</strong><p class="position">Lateral</p><div class="stats-block"><p class="stat-line">Partidos jugados: 17</p><p class="stat-line">Goles: 1</p></div></div></div>
+            <div class="player-box"><span class="num">3</span><div class="p-data"><strong>Bruno San Martin</strong><p class="position">Lateral</p><div class="stats-block"><p class="stat-line">Partidos jugados: 26</p><p class="stat-line">Goles: 9</p></div></div></div>
+            <div class="player-box"><span class="num">4</span><div class="p-data"><strong>Iker Ekai </strong><p class="position">Defensa</p><div class="stats-block"><p class="stat-line">Partidos jugados: 18</p><p class="stat-line">Goles: 1</p></div></div></div>
+            <div class="player-box"><span class="num">5</span><div class="p-data"><strong>Unai Berrueta </strong><p class="position">Defensa</p><div class="stats-block"><p class="stat-line">Partidos jugados: 18</p><p class="stat-line">Goles: 4</p></div></div></div>
+            <div class="player-box"><span class="num">6</span><div class="p-data"><strong>Iker San Martin</strong><p class="position">Medio</p><div class="stats-block"><p class="stat-line">Partidos jugados: 29</p><p class="stat-line">Goles: 7</p></div></div></div>
+            <div class="player-box"><span class="num">7</span><div class="p-data"><strong>Eneko Gaston </strong><p class="position">Extremo</p><div class="stats-block"><p class="stat-line">Partidos jugados: 23</p><p class="stat-line">Goles: 5</p></div></div></div>
+            <div class="player-box"><span class="num">8</span><div class="p-data"><strong>Unax Ripa </strong><p class="position">Medio</p><div class="stats-block"><p class="stat-line">Partidos jugados: 10</p><p class="stat-line">Goles: 3</p></div></div></div>
+            <div class="player-box"><span class="num">9</span><div class="p-data"><strong>Martin Esparza </strong><p class="position">Delantero</p><div class="stats-block"><p class="stat-line">Partidos jugados: 15</p><p class="stat-line">Goles: 3</p></div></div></div>
+            <div class="player-box"><span class="num">10</span><div class="p-data"><strong>Markel San Martin </strong><p class="position">Medio ofensivo</p><div class="stats-block"><p class="stat-line">Partidos jugados: 23</p><p class="stat-line">Goles: 27</p></div></div></div>
+            <div class="player-box"><span class="num">11</span><div class="p-data"><strong>Unai Zalduendo </strong><p class="position">Extremo</p><div class="stats-block"><p class="stat-line">Partidos jugados: 26</p><p class="stat-line">Goles: 10</p></div></div></div>
+            <div class="player-box"><span class="num">12</span><div class="p-data"><strong>Iosu Goñi </strong><p class="position">Lateral</p><div class="stats-block"><p class="stat-line">Partidos jugados: 16</p><p class="stat-line">Goles: 0</p></div></div></div>
+            <div class="player-box keeper"><span class="num">13</span><div class="p-data"><strong>Iker Cambra </strong><p class="position">Portero</p><div class="stats-block"><p class="stat-line">Partidos jugados: 13</p><p class="stat-line">Goles recibidos: 22</p></div></div></div>
+            <div class="player-box"><span class="num">14</span><div class="p-data"><strong>Hodei Ekai</strong><p class="position">Medio</p><div class="stats-block"><p class="stat-line">Partidos jugados: 18</p><p class="stat-line">Goles: 1</p></div></div></div>
+            <div class="player-box"><span class="num">15</span><div class="p-data"><strong>Unai Marquinez </strong><p class="position">Defensa</p><div class="stats-block"><p class="stat-line">Partidos jugados: 21</p><p class="stat-line">Goles: 1</p></div></div></div>
+            <div class="player-box"><span class="num">16</span><div class="p-data"><strong>Oihan Kamine </strong><p class="position">Medio</p><div class="stats-block"><p class="stat-line">Partidos jugados: 11</p><p class="stat-line">Goles: 0</p></div></div></div>
+            <div class="player-box"><span class="num">17</span><div class="p-data"><strong>Kepa Leza</strong><p class="position">Delantero</p><div class="stats-block"><p class="stat-line">Partidos jugados: 26</p><p class="stat-line">Goles: 6</p></div></div></div>
+            <div class="player-box"><span class="num">18</span><div class="p-data"><strong>Jon Larrayoz </strong><p class="position">Delantero</p><div class="stats-block"><p class="stat-line">Partidos jugados: 24</p><p class="stat-line">Goles: 5</p></div></div></div>
+            <div class="player-box"><span class="num">19</span><div class="p-data"><strong>Lucas Sanz de Galdeano</strong><p class="position">Extremo</p><div class="stats-block"><p class="stat-line">Partidos jugados: 20</p><p class="stat-line">Goles: 2</p></div></div></div>
+            <div class="player-box"><span class="num">20</span><div class="p-data"><strong>Ioar Fernandez</strong><p class="position">Defensa</p><div class="stats-block"><p class="stat-line">Partidos jugados: 19</p><p class="stat-line">Goles: 1</p></div></div></div>
+            <div class="player-box"><span class="num">21</span><div class="p-data"><strong>Javi Echavarri(C)</strong><p class="position">Lateral</p><div class="stats-block"><p class="stat-line">Partidos jugados: 14</p><p class="stat-line">Goles: 1</p></div></div></div>
+            <div class="player-box"><span class="num">22</span><div class="p-data"><strong>Beñat Cayetano</strong><p class="position">Lateral</p><div class="stats-block"><p class="stat-line">Partidos jugados: 8</p><p class="stat-line">Goles: 1</p></div></div></div>
+            <div class="player-box"><span class="num">23</span><div class="p-data"><strong>Urko Cagigal </strong><p class="position">Medio</p><div class="stats-block"><p class="stat-line">Partidos jugados: 21</p><p class="stat-line">Goles: 2</p></div></div></div>
+            <div class="player-box"><span class="num">24</span><div class="p-data"><strong>Iker Etayo</strong><p class="position">Extremo</p><div class="stats-block"><p class="stat-line">Partidos jugados: 19</p><p class="stat-line">Goles: 1</p></div></div></div>
+            <div class="player-box"><span class="num">25</span><div class="p-data"><strong>Alex Lacalle </strong><p class="position">Defensa</p><div class="stats-block"><p class="stat-line">Partidos jugados: 6</p><p class="stat-line">Goles: 1</p></div></div></div>
         </div>
-        <p class="cantera">(C):Canterano</p>
     </section>
     <section id="resultados" class="view-section hidden">
         <div class="header-flex">
@@ -252,6 +659,193 @@
     <p class="final">Creador de la Pagina: Iker Cambra Diaz</p>
   <p class="final">Todos los derechos del escudo y marca pertenecen a el Club deportivo Idoya</p>
 </footer>
+    </div>
+
+<div id="cat-cadete" class="team-container hidden">
+   <header class="navbar-dark">
+    <div class="nav-container">
+        <div class="brand">
+            <span class="logo-accent">CD</span> IDOYA
+        </div>
+        <nav class="links">
+            <button class="nav-btn-main" onclick="mostrarSeccion('inicio')">INICIO</button>
+            <a href="https://www.futnavarra.es/pnfg/NPcd/NFG_VisEquipos?cod_primaria=1000119&Codigo_Equipo=6461" 
+   target="_blank" 
+   rel="noopener noreferrer">
+   <button class="nav-btn-main" type="button">FNF</button>
+</a>
+        </nav>
+    </div>
+</header>
+<main class="container">
+    <section id="inicio" class="view-section">
+        <div class="hero-dark">
+            <div class="hero-inner">
+                <span class="badge">Oficial</span>
+                <h1>IDOYA CADETE</h1>
+                <p>Pasión, Esfuerzo y Corazón en Oteiza de la Solana.</p>
+                <div class="line-decorator"></div>
+            </div>
+        </div>
+        <div class="summary-cards">
+            <div class="glass-card">
+                <h3>El Club</h3>
+                <p>El Club Deportivo Idoya representa la identidad de nuestro pueblo. Fundado con el objetivo de promover el deporte, hoy competimos con orgullo en cada jornada defendiendo nuestros valores y la historia de Oteiza de la Solana.</p>
+            </div>
+            <div class="glass-card">
+                <h3>Estadio Iturtxipia</h3>
+                <p>Nuestra casa, donde la afición se hace sentir y el equipo entrega todo por los colores azul y rojo en cada disputa de balón. Un lugar de encuentro para toda la comunidad de Oteiza.</p>
+            </div>
+        </div>
+        <div class="shortcut-menu">
+            <button class="action-card" onclick="mostrarSeccion('jugadores')">
+                <div class="icon">👥</div>
+                <span class="card-label">PLANTILLA</span>
+                <small>19 Integrantes</small>
+            </button>
+            <button class="action-card" onclick="mostrarSeccion('resultados')">
+                <div class="icon">📈</div>
+                <span class="card-label">RESULTADOS</span>
+                <small>26 Jornadas</small>
+            </button>
+        </div>
+        <div class="classification-container">
+            <h2 class="section-title-alt">CLASIFICACIÓN OFICIAL</h2>
+            <div class="table-wrapper">
+                <table class="dark-table classification">
+                    <thead>
+                        <tr>
+                            <th>POS</th>
+                            <th>EQUIPO</th>
+                            <th>PTS</th>
+                            <th>J</th>
+                            <th>G</th>
+                            <th>E</th>
+                            <th>P</th>
+                            <th>F</th>
+                            <th>C</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td class="team-name">C.D. Arenas"A"</td><td>67</td><td>23</td><td>22</td><td>1</td><td>0</td><td>147</td><td>23</td></tr>
+                        <tr><td>2</td><td class="team-name">C.D. Zarramonza </td><td>56</td><td>23</td><td>18</td><td>2</td><td>3</td><td>143</td><td>35</td></tr>
+                        <tr><td>3</td><td class="team-name">S.D. Lagunak </td><td>51</td><td>23</td><td>16</td><td>3</td><td>4</td><td>85</td><td>23</td></tr>
+                        <tr><td>4</td><td class="team-name">C.D. Kirol Sport "A"</td><td>47</td><td>23</td><td>15</td><td>2</td><td>6</td><td>99</td><td>41</td></tr>
+                        <tr><td>5</td><td class="team-name">C.D. Mendavies</td><td>40</td><td>24</td><td>13</td><td>1</td><td>0</td><td>83</td><td>63</td></tr>
+                        <tr><td>6</td><td class="team-name">C.D. Valle de Egües "C"</td><td>36</td><td>23</td><td>12</td><td>0</td><td>11</td><td>62</td><td>42</td></tr>
+                        <tr class="highlight-idoya"><td>7</td><td class="team-idoya">C.D. IDOYA</td><td>36</td><td>23</td><td>11</td><td>3</td><td>9</td><td>42</td><td>53</td></tr>
+                        <tr><td>8</td><td class="team-name">C.D. Cendea de Zizur</td><td>32</td><td>23</td><td>10</td><td>2</td><td>11</td><td>66</td><td>68</td></tr>
+                        <tr><td>9</td><td class="team-name">C.D. Asdefor "B"</td><td>26</td><td>24</td><td>8</td><td>2</td><td>14</td><td>61</td><td>78</td></tr>
+                        <tr><td>10</td><td class="team-name">C.D. Zizur</td><td>25</td><td>23</td><td>7</td><td>4</td><td>12</td><td>59</td><td>79</td></tr>
+                        <tr><td>11</td><td class="team-name">C.D. Gares</td><td>22</td><td>22</td><td>6</td><td>4</td><td>13</td><td>47</td><td>102</td></tr>
+                        <tr><td>12</td><td class="team-name">C.D. Ondalan</td><td>14</td><td>23</td><td>4</td><td>2</td><td>17</td><td>33</td><td>101</td></tr>
+                        <tr><td>13</td><td class="team-name">C.D. San Miguel</td><td>6</td><td>23</td><td>2</td><td>0</td><td>21</td><td>27</td><td>133</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <p class="tabla">(PTS):Puntos Logrados</p>
+        <p class="tabla">(J):Partidos Jugados</p>
+        <p class="tabla">(G):Partidos Ganados</p>
+        <p class="tabla">(E):Partidos Empatados</p>
+        <p class="tabla">(P):Partidos Perdidos</p>
+        <p class="tabla">(F):Goles A Favor</p>
+        <p class="tabla">(C):Goles En Contra</p>
+    </section>
+    <section id="jugadores" class="view-section hidden">
+        <div class="header-flex">
+            <h2>CUERPO TÉCNICO Y PLANTILLA</h2>
+            <button class="back-link" onclick="mostrarSeccion('inicio')">VOLVER</button>
+        </div>
+        <div class="players-dark-grid" style="margin-bottom: 50px;">
+            <div class="player-box coach-box">
+                <span class="num">DT</span>
+                <div class="p-data">
+                    <strong>Mikel Arteaga</strong><p class="position">Entrenador Principal</p>
+                    <div class="stats-block"><p class="stat-line">Primer año en el equipo</p></div>
+                </div>
+            </div>
+            <div class="player-box coach-box">
+                <span class="num">AT</span>
+                <div class="p-data">
+                    <strong>Diego Meoqui</strong><p class="position">Segundo Entrenador</p>
+                    <div class="stats-block"><p class="stat-line">Segundo año en el equipo, alcanzo la fase de ascenso en la 24/25</p></div>
+                </div>
+            </div>
+        </div>
+        <div class="players-dark-grid">
+            <div class="player-box keeper"><span class="num">1</span><div class="p-data"><strong>Imanol Roitegui(C</strong><p class="position">Portero</p><div class="stats-block"><p class="stat-line">Partidos jugados: 26</p><p class="stat-line">Goles recibidos: 35</p></div></div></div>
+            <div class="player-box"><span class="num">2</span><div class="p-data"><strong>Gaizka Lasa</strong><p class="position">Lateral</p><div class="stats-block"><p class="stat-line">Partidos jugados: 21</p><p class="stat-line">Goles: 0</p></div></div></div>
+            <div class="player-box"><span class="num">3</span><div class="p-data"><strong>Ayoub Bouhdida</strong><p class="position">Lateral</p><div class="stats-block"><p class="stat-line">Partidos jugados: 22</p><p class="stat-line">Goles: 0</p></div></div></div>
+            <div class="player-box"><span class="num">4</span><div class="p-data"><strong>Miguel Esparza</strong><p class="position">Defensa</p><div class="stats-block"><p class="stat-line">Partidos jugados: 25</p><p class="stat-line">Goles: 3</p></div></div></div>
+            <div class="player-box"><span class="num">5</span><div class="p-data"><strong>Oihan Garcia</strong><p class="position">Defensa</p><div class="stats-block"><p class="stat-line">Partidos jugados: 18</p><p class="stat-line">Goles: 4</p></div></div></div>
+            <div class="player-box"><span class="num">6</span><div class="p-data"><strong>Imanol Masa</strong><p class="position">Medio</p><div class="stats-block"><p class="stat-line">Partidos jugados: 20</p><p class="stat-line">Goles: 3</p></div></div></div>
+            <div class="player-box"><span class="num">7</span><div class="p-data"><strong>David Ibañez</strong><p class="position">Extremo</p><div class="stats-block"><p class="stat-line">Partidos jugados: 23</p><p class="stat-line">Goles: 8</p></div></div></div>
+            <div class="player-box"><span class="num">8</span><div class="p-data"><strong>Alvaro Lacalle</strong><p class="position">Medio</p><div class="stats-block"><p class="stat-line">Partidos jugados: 23</p><p class="stat-line">Goles: 4</p></div></div></div>
+            <div class="player-box"><span class="num">9</span><div class="p-data"><strong>Adam Lahlia</strong><p class="position">Delantero</p><div class="stats-block"><p class="stat-line">Partidos jugados: 16</p><p class="stat-line">Goles: 1</p></div></div></div>
+            <div class="player-box"><span class="num">10</span><div class="p-data"><strong>Marsel Morras</strong><p class="position">Medio ofensivo</p><div class="stats-block"><p class="stat-line">Partidos jugados: 16</p><p class="stat-line">Goles: 0</p></div></div></div>
+            <div class="player-box"><span class="num">11</span><div class="p-data"><strong>Iosu Fonseca</strong><p class="position">Extremo</p><div class="stats-block"><p class="stat-line">Partidos jugados: 20</p><p class="stat-line">Goles: 11</p></div></div></div>
+            <div class="player-box"><span class="num">12</span><div class="p-data"><strong>IKer Silva</strong><p class="position">Medio</p><div class="stats-block"><p class="stat-line">Partidos jugados: 20</p><p class="stat-line">Goles: 5</p></div></div></div>
+            <div class="player-box keeper"><span class="num">13</span><div class="p-data"><strong>Xabi Esparza</strong><p class="position">Portero</p><div class="stats-block"><p class="stat-line">Partidos jugados: 26</p><p class="stat-line">Goles recibidos: 22</p></div></div></div>
+            <div class="player-box"><span class="num">14</span><div class="p-data"><strong>Andres Murugarren</strong><p class="position">Medio</p><div class="stats-block"><p class="stat-line">Partidos jugados: 23</p><p class="stat-line">Goles: 2</p></div></div></div>
+            <div class="player-box"><span class="num">15</span><div class="p-data"><strong>Isaac Garcia</strong><p class="position">Defensa</p><div class="stats-block"><p class="stat-line">Partidos jugados: 15</p><p class="stat-line">Goles: 2</p></div></div></div>
+            <div class="player-box"><span class="num">16</span><div class="p-data"><strong>Adur Perez</strong><p class="position">Medio</p><div class="stats-block"><p class="stat-line">Partidos jugados: 21</p><p class="stat-line">Goles: 2</p></div></div></div>
+            <div class="player-box"><span class="num">17</span><div class="p-data"><strong>Julen Cayetani</strong><p class="position">Extremo</p><div class="stats-block"><p class="stat-line">Partidos jugados: 19</p><p class="stat-line">Goles: 1</p></div></div></div>
+        </div>
+    </section>
+    <section id="resultados" class="view-section hidden">
+        <div class="header-flex">
+            <h2>RESUMEN DE JORNADAS</h2>
+            <button class="back-link" onclick="mostrarSeccion('inicio')">VOLVER</button>
+        </div>
+        <div class="table-wrapper">
+            <table class="dark-table">
+                <thead>
+                    <tr><th>JDA</th><th>RIVAL</th><th>RESULTADO</th><th>GOLES</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>1</td><td>Mendavies(L)</td><td>2 - 0</td><td>Miguel Esparza<br>David Ibañez</td></tr>
+                    <tr><td>2</td><td>Zizur(V)</td><td>0 - 1</td><td>Imanol Masa</td></tr>
+                    <tr><td>3</td><td>San Miguel(L)</td><td>6 - 0</td><td>Iker Silva<br>David Ibañez<br>Iosu Fonseca X2<br>Alvaro Lacalle<br>Isaac Garcia</td></tr>
+                    <tr><td>4</td><td>Lodosa(V)</td><td>0 - 4</td><td>Adur Perez<br>Iosu Fonseca<br>Iker Silva<br>David Ibañez</td></tr>
+                    <tr><td>5</td><td>Kirol Sport(V)</td><td>7 - 1</td><td>Miguel Esparza</td></tr>
+                    <tr><td>6</td><td>Lagunak(L)</td><td>0 - 3</td><td>N/A</td></tr>
+                    <tr><td>7</td><td>Arenas(V)</td><td>6 - 0</td><td>N/A</td></tr>
+                    <tr><td>8</td><td>Zarramonza(L)</td><td>3 - 3</td><td>Iosu Fonseca X2<br>Iker Silva</td></tr>
+                    <tr><td>9</td><td>Cendea de Zizur(V)</td><td>1 - 2</td><td>David Ibañez<br>Imanol Roitegui</td></tr>
+                    <tr><td>10</td><td>Gares(L)</td><td>3 - 2</td><td>David Ibañez<br>Oihan Garcia</td></tr>
+                    <tr><td>11</td><td>Valle de Egües(V)</td><td>0 - 1</td><td>Iosu Fonseca</td></tr>
+                    <tr><td>12</td><td>Bidezarra(L)</td><td>5 - 1</td><td>Iosu Fonseca X2<br>Julen Cayetano<br>Andres Murugarren<br>Alvaro Lacalle</td></tr>
+                    <tr><td>13</td><td>Asdefor(V)</td><td>0 - 1</td><td>Iosu Fonseca</td></tr>
+                    <tr><td>14</td><td>Mendavies(V)</td><td>3 - 2</td><td>Adur Perez<br>Isaac Garcia</td></tr>
+                    <tr><td>15</td><td>Zizur(L)</td><td>3 - 3</td><td>David Ibañez X2<br>Alvaro Lacalle</td></tr>
+                    <tr><td>16</td><td>San Miguel(V)</td><td>1 - 2</td><td>Oihan Garcia<br>Iker Silva</td></tr>
+                    <tr><td>17</td><td>Descansa</td><td> - </td><td>N/A</td></tr>
+                    <tr><td>18</td><td>Kirol Sport(L)</td><td>2 - 2</td><td>Imanol Masa<br>Adam Lahia</td></tr>
+                    <tr><td>19</td><td>Lagunak(V)</td><td>4 - 0</td><td>N/A</td></tr>
+                    <tr><td>20</td><td>Arenas(L)</td><td>0 - 7</td><td>N/A</td></tr>
+                    <tr><td>21</td><td>Zarramonza(V)</td><td>4 - 0</td><td>N/A</td></tr>
+                    <tr><td>22</td><td>Cendea de Zizur(L)</td><td>2 - 1</td><td>Iosu Fonseca<br>Iker Silva</td></tr>
+                    <tr><td>23</td><td>Gares(V)</td><td>4 - 2</td><td>Oihan Garcia</td></tr>
+                    <tr><td>24</td><td>Descansa</td><td> - </td><td>N/A</td></tr>
+                    <tr><td>25</td><td>Ondalan(V)</td><td>0 - 0</td><td>Pendiente</td></tr>
+                    <tr><td>26</td><td>Asdefor(L)</td><td>0 - 0</td><td>Pendiente</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p class="resultado">(L):Local</p>
+        <p class="cantera">(V):Visitante</p>
+        <p class="cantera">(P):Penalti</p>
+        <p class="cantera">(GP):Gol en propia</p>
+    </section>
+</main>
+<footer class="main-footer">
+    <p>C.D. IDOYA &copy; 2026 | Oteiza de la Solana</p>
+  <p class="final">Web no oficial gestionada por aficionados</p>
+    <p class="final">Creador de la Pagina: Iker Cambra Diaz</p>
+  <p class="final">Todos los derechos del escudo y marca pertenecen a el Club deportivo Idoya</p>
+</footer>
+    </div>
     <script  src="./script.js"></script>
 
   </body>
