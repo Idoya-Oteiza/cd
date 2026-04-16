@@ -1,3 +1,7 @@
+/* ==========================================
+   1. LÓGICA DE CATEGORÍAS Y SECCIONES
+   ========================================== */
+
 function cambiarCategoria(categoria) {
     // Mapa de fotos actualizado
     const fotosCabecera = {
@@ -6,6 +10,7 @@ function cambiarCategoria(categoria) {
         'juvenil': 'https://i.postimg.cc/8cLn51WL/Screenshot-2026-04-16-21-43-31.png',
         'cadete': 'https://i.postimg.cc/284PjxFJ/Screenshot-2026-04-16-21-42-40.png'
     };
+
     const equipos = document.querySelectorAll('.team-container');
     equipos.forEach(eq => eq.classList.add('hidden'));
 
@@ -14,6 +19,7 @@ function cambiarCategoria(categoria) {
         equipoActivo.classList.remove('hidden');
         
         if (fotosCabecera[categoria]) {
+            // Aplicamos los estilos directamente para asegurar el fondo estático
             document.body.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('${fotosCabecera[categoria]}')`;
             document.body.style.backgroundAttachment = 'fixed';
             document.body.style.backgroundSize = 'cover';
@@ -39,6 +45,9 @@ function mostrarSeccion(seccionId) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+/* ==========================================
+   2. FUNCIONES DINÁMICAS (DOM CONTENT LOADED)
+   ========================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
     
@@ -122,6 +131,10 @@ document.addEventListener('DOMContentLoaded', () => {
         btnPizarra.onclick = () => abrirPizarra(menu.closest('.team-container'));
     });
 });
+
+/* ==========================================
+   3. FUNCIÓN DE LA PIZARRA TÁCTICA
+   ========================================== */
 
 function abrirPizarra(equipoPadre) {
     const overlay = document.createElement('div');
