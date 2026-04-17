@@ -458,3 +458,19 @@ function cambiarCategoria(categoria) {
         mostrarSeccion('inicio');
     }
 }
+
+.summary-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start; 
+    padding: 20px;
+}
+
+.glass-card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+    height: auto; 
+}
