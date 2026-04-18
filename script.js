@@ -1,5 +1,4 @@
 function cambiarCategoria(categoria) {
-    // Mapa de fotos actualizado
     const fotosCabecera = {
         'primer': 'https://i.postimg.cc/P5MsyMCN/Screenshot-2026-04-16-21-42-48.png',
         'segundo': 'https://i.postimg.cc/8CnYXXNB/Screenshot-2026-04-16-21-42-29.png',
@@ -41,7 +40,6 @@ function mostrarSeccion(seccionId) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    
     const todasLasSeccionesJugadores = document.querySelectorAll('.view-section[id="jugadores"]');
     todasLasSeccionesJugadores.forEach((seccion, index) => {
         const searchContainer = document.createElement('div');
@@ -127,7 +125,7 @@ function abrirPizarra(equipoPadre) {
     overlay.style = 'position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(5,5,5,0.98); z-index:10001; overflow-y:auto; padding: 10px; font-family: sans-serif;';
     
     const nombres = Array.from(equipoPadre.querySelectorAll('.player-box:not(.coach-box) strong'))
-                         .map(n => n.innerText.replace(/\(C\)/g, '').trim());
+                           .map(n => n.innerText.replace(/\(C\)/g, '').trim());
 
     overlay.innerHTML = `
         <div style="display:flex; justify-content:space-between; align-items:center; max-width:800px; margin: 0 auto 15px;">
@@ -157,6 +155,15 @@ function abrirPizarra(equipoPadre) {
 
     document.body.appendChild(overlay);
     document.body.style.overflow = 'hidden';
+
+    // --- ACTIVACIÓN DEL BUSCADOR DE PIZARRA ---
+    const searchInput = overlay.querySelector('#pizarraSearch');
+    searchInput.addEventListener('input', (e) => {
+        const term = e.target.value.toLowerCase();
+        overlay.querySelectorAll('.p-item').forEach(item => {
+            item.style.display = item.innerText.toLowerCase().includes(term) ? 'block' : 'none';
+        });
+    });
 
     document.getElementById('cerrarPizarra').onclick = () => {
         overlay.remove();
