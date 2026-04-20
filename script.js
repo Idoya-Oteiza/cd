@@ -208,3 +208,49 @@ function abrirPizarra(equipoPadre) {
         };
     });
 }
+function abrirFicha(nombre, posicion, partidos, titular, amarillas, rojas, goles, equipo) {
+    if (document.querySelector('.modal-jugador')) return;
+
+    const modal = document.createElement('div');
+    modal.className = 'modal-jugador';
+    
+    modal.innerHTML = `
+        <div class="ficha-detalle">
+            <h3 style="margin: 0 0 5px 0; color: #0055ff; font-size: 1.5rem;">${nombre}</h3>
+            <div style="font-size: 0.9rem; color: #666; margin-bottom: 15px; text-transform: uppercase;">${posicion}</div>
+            
+            <div class="stats-grid-detalle">
+                <div class="stat-item">
+                    <span>${partidos}</span>
+                    <label>Partidos</label>
+                </div>
+                <div class="stat-item">
+                    <span>${titular}</span>
+                    <label>Titular</label>
+                </div>
+
+                <div class="stat-item">
+                    <span style="color: #ffd700;">${amarillas}</span>
+                    <label>Amarillas</label>
+                </div>
+                <div class="stat-item">
+                    <span style="color: #ff4444;">${rojas}</span>
+                    <label>Rojas</label>
+                </div>
+
+                <div class="stat-item item-goles" style="grid-column: span 2; border-color: #0055ff;">
+                    <span style="color: #0055ff;">${goles}</span>
+                    <label>${posicion.toLowerCase().includes('portero') ? 'Goles Encajados' : 'Goles'}</label>
+                </div>
+            </div>
+            
+            <button onclick="this.closest('.modal-jugador').remove()" 
+                    style="margin-top: 20px; background: none; border: 1px solid #444; color: #888; padding: 8px 20px; border-radius: 5px; cursor: pointer; font-size: 0.9rem; width: 100%;">
+                Cerrar
+            </button>
+        </div>
+    `;
+    
+    document.body.appendChild(modal);
+    modal.onclick = (e) => { if (e.target === modal) modal.remove(); };
+}
