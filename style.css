@@ -207,15 +207,6 @@ body {
     gap: 25px;
 }
 
-.player-box {
-    background: var(--bg-card);
-    padding: 30px;
-    border-radius: 12px;
-    display: flex;
-    align-items: flex-start;
-    border: 1px solid var(--border);
-}
-
 .coach-box { border-top: 4px solid var(--primary-red); }
 
 .num {
@@ -473,4 +464,71 @@ function cambiarCategoria(categoria) {
     min-width: 300px;
     max-width: 400px;
     height: auto; 
+}
+
+.modal-jugador {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+    pointer-events: auto; 
+}
+
+.ficha-detalle {
+    background: #000000;
+    border: 2px solid #0055ff;
+    border-radius: 15px;
+    width: 320px;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.9); 
+    animation: aparecer 0.3s ease-out;
+}
+
+.player-box {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    background: #000000; 
+    border-radius: 10px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid #222; 
+}
+
+.player-box:hover {
+    background: #000000; 
+    transform: translateX(5px); 
+    border-color: #0055ff;
+    box-shadow: 0 0 15px rgba(0, 85, 255, 0.3); 
+}
+
+.stats-grid-detalle {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.stat-item {
+    background: #151515;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #222;
+}
+
+.stat-item span { font-size: 1.2rem; display: block; font-weight: bold; }
+.stat-item label { font-size: 0.65rem; color: #888; text-transform: uppercase; }
+
+@keyframes aparecer {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
 }
