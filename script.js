@@ -125,7 +125,7 @@ function abrirPizarra(equipoPadre) {
     overlay.style = 'position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(5,5,5,0.98); z-index:10001; overflow-y:auto; padding: 10px; font-family: sans-serif;';
     
     const nombres = Array.from(equipoPadre.querySelectorAll('.player-box:not(.coach-box) strong'))
-                           .map(n => n.innerText.replace(/\(C\)/g, '').trim());
+                            .map(n => n.innerText.replace(/\(C\)/g, '').trim());
 
     overlay.innerHTML = `
         <div style="display:flex; justify-content:space-between; align-items:center; max-width:800px; margin: 0 auto 15px;">
@@ -156,7 +156,6 @@ function abrirPizarra(equipoPadre) {
     document.body.appendChild(overlay);
     document.body.style.overflow = 'hidden';
 
-    // --- ACTIVACIÓN DEL BUSCADOR DE PIZARRA ---
     const searchInput = overlay.querySelector('#pizarraSearch');
     searchInput.addEventListener('input', (e) => {
         const term = e.target.value.toLowerCase();
@@ -208,6 +207,7 @@ function abrirPizarra(equipoPadre) {
         };
     });
 }
+
 function abrirFicha(nombre, posicion, partidos, titular, amarillas, rojas, goles, equipo) {
     if (document.querySelector('.modal-jugador')) return;
 
@@ -217,7 +217,7 @@ function abrirFicha(nombre, posicion, partidos, titular, amarillas, rojas, goles
     modal.innerHTML = `
         <div class="ficha-detalle">
             <h3 style="margin: 0 0 5px 0; color: #0055ff; font-size: 1.5rem;">${nombre}</h3>
-            <div style="font-size: 0.9rem; color: #666; margin-bottom: 15px; text-transform: uppercase;">${posicion}</div>
+            <div style="font-size: 0.9rem; color: #666; margin-bottom: 15px; text-transform: uppercase;">${posicion} (${equipo})</div>
             
             <div class="stats-grid-detalle">
                 <div class="stat-item">
