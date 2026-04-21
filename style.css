@@ -582,3 +582,97 @@ function cambiarCategoria(categoria) {
     font-weight: bold;
     font-size: 1rem;
 }
+
+.fila-partidos {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 20px;           
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+.card-informativa {
+    flex: 1;             
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid #0055ff;
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-informativa h3 {
+    color: #0055ff;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.marcador-texto {
+    font-size: 1.4rem;  
+    font-weight: bold;
+    color: white;
+}
+
+.resumen-texto {
+    font-size: 0.9rem;   
+    color: #aaa;
+    margin: 15px 0;
+    line-height: 1.4;
+}
+
+.mvp-texto {
+    color: #ffd700;      
+    font-size: 1.4rem;  
+    font-weight: bold;
+}
+
+.reloj-display span {
+    font-size: 3rem;           
+    font-weight: 800;         
+    color: #ffffff;           
+    display: block;           
+    line-height: 1;           
+    text-shadow: 0 0 15px rgba(0, 85, 255, 0.5); 
+}
+
+
+.reloj-display small {
+    font-size: 0.75rem;       
+    color: #0055ff;         
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 5px;          
+}
+
+.reloj-display div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 85, 255, 0.1); 
+    padding: 15px;
+    border-radius: 10px;
+    min-width: 80px;          
+}
+
+.reloj-display {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 15px 0;
+}
+
+@media (max-width: 768px) {
+    .fila-partidos {
+        flex-direction: column;
+    }
+    .card-informativa {
+        width: 100%;
+    }
+}
