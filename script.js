@@ -1,3 +1,12 @@
+const fechasPartidos = {
+    'primer': { fecha: "April 26, 2026 18:30:00", info: "Idoya vs Cabanillas | Sábado 18:30h | San Roque" },
+    'segundo': { fecha: "April 25, 2026 17:00:00", info: "Idoya vs Izarra | Sábado 17:00h | Merkatondoa" },
+    'juvenil': { fecha: "April 26, 2026 12:00:00", info: "Juvenil vs Iruña | Domingo 12:00h | Iturtxipia" },
+    'cadete': { fecha: "April 25, 2026 16:00:00", info: "Cadete vs Asdefor | Sabado 16:00h | Iturtxipia" }
+};
+
+let countdownInterval; 
+
 function cambiarCategoria(categoria) {
     const fotosCabecera = {
         'primer': 'https://i.postimg.cc/P5MsyMCN/Screenshot-2026-04-16-21-42-48.png',
@@ -13,6 +22,7 @@ function cambiarCategoria(categoria) {
     if (equipoActivo) {
         equipoActivo.classList.remove('hidden');
         
+        // Aplicar fotos al fondo
         if (fotosCabecera[categoria]) {
             document.body.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('${fotosCabecera[categoria]}')`;
             document.body.style.backgroundAttachment = 'fixed';
@@ -22,6 +32,7 @@ function cambiarCategoria(categoria) {
         }
         
         mostrarSeccion('inicio');
+        iniciarCronometro(categoria);
     }
 }
 
@@ -39,7 +50,53 @@ function mostrarSeccion(seccionId) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+function iniciarCronometro(cat) {
+    if (countdownInterval) clearInterval(countdownInterval);
+
+    const config = fechasPartidos[cat];
+    const container = document.getElementById('cat-' + cat);
+    
+    if (!container || !config) return;
+
+    const infoTxt = container.querySelector('.reloj-info');
+    const dSpan = container.querySelector('.days');
+    const hSpan = container.querySelector('.hours');
+    const mSpan = container.querySelector('.minutes');
+    const sSpan = container.querySelector('.seconds');
+
+    if (infoTxt) infoTxt.innerText = config.info;
+
+    const target = new Date(config.fecha).getTime();
+
+    countdownInterval = setInterval(() => {
+        const now = new Date().getTime();
+        const diff = target - now;
+
+        if (diff < 0) {
+            clearInterval(countdownInterval);
+            if (container.querySelector('.reloj-display')) {
+                container.querySelector('.reloj-display').innerHTML = "<h3 style='color:#00ff88'>¡PARTIDO EN JUEGO! ⚽</h3>";
+            }
+            return;
+        }
+
+        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+        if (dSpan) dSpan.innerText = d.toString().padStart(2, '0');
+        if (hSpan) hSpan.innerText = h.toString().padStart(2, '0');
+        if (mSpan) mSpan.innerText = m.toString().padStart(2, '0');
+        if (sSpan) sSpan.innerText = s.toString().padStart(2, '0');
+    }, 1000);
+}
+
+
 document.addEventListener('DOMContentLoaded', () => {
+
+    cambiarCategoria('primer');
+
     const todasLasSeccionesJugadores = document.querySelectorAll('.view-section[id="jugadores"]');
     todasLasSeccionesJugadores.forEach((seccion, index) => {
         const searchContainer = document.createElement('div');
@@ -105,6 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btnEfecto.style.background = efectoActivo ? '#0055ff' : '#cc0000';
     };
 
+    // Botones de Pizarra en Menús
     const menus = document.querySelectorAll('.shortcut-menu');
     menus.forEach(menu => {
         const btnPizarra = document.createElement('button');
@@ -228,7 +286,6 @@ function abrirFicha(nombre, posicion, partidos, titular, amarillas, rojas, goles
                     <span>${titular}</span>
                     <label>Titular</label>
                 </div>
-
                 <div class="stat-item">
                     <span style="color: #ffd700;">${amarillas}</span>
                     <label>Amarillas</label>
@@ -237,7 +294,6 @@ function abrirFicha(nombre, posicion, partidos, titular, amarillas, rojas, goles
                     <span style="color: #ff4444;">${rojas}</span>
                     <label>Rojas</label>
                 </div>
-
                 <div class="stat-item item-goles" style="grid-column: span 2; border-color: #0055ff;">
                     <span style="color: #0055ff;">${goles}</span>
                     <label>${posicion.toLowerCase().includes('portero') ? 'Goles Encajados' : 'Goles'}</label>
@@ -254,70 +310,3 @@ function abrirFicha(nombre, posicion, partidos, titular, amarillas, rojas, goles
     document.body.appendChild(modal);
     modal.onclick = (e) => { if (e.target === modal) modal.remove(); };
 }
-const fechasPartidos = {
-    'primer': { fecha: "April 26, 2026 18:30:00", info: "Idoya vs Cabanillas | Sábado 18:30h | San Roque" },
-    'segundo': { fecha: "April 25, 2026 17:00:00", info: "Idoya vs Izarra | Sábado 17:00h | Merkatondoa" },
-    'juvenil': { fecha: "April 26, 2026 12:00:00", info: "Juvenil vs Iruña | Domingo 12:00h | Iturtxipia" },
-    'cadete': { fecha: "April 25, 2026 16:00:00", info: "Cadete vs Asdefor | Sabado 16:00h | Iturtxipia" }
-};
-
-let countdownInterval; 
-
-function cambiarCategoria(categoria) {
-    const equipos = document.querySelectorAll('.team-container');
-    equipos.forEach(eq => eq.classList.add('hidden'));
-
-    const equipoActivo = document.getElementById('cat-' + categoria);
-    if (equipoActivo) {
-        equipoActivo.classList.remove('hidden');
-        mostrarSeccion('inicio');
-        // Llamamos a la función del reloj
-        iniciarCronometro(categoria);
-    }
-}
-
-function iniciarCronometro(cat) {
-    if (countdownInterval) clearInterval(countdownInterval);
-
-    const config = fechasPartidos[cat];
-    const container = document.getElementById('cat-' + cat);
-    
-    if (!container || !config) return;
-
-    const infoTxt = container.querySelector('.reloj-info');
-    const dSpan = container.querySelector('.days');
-    const hSpan = container.querySelector('.hours');
-    const mSpan = container.querySelector('.minutes');
-    const sSpan = container.querySelector('.seconds');
-
-    if (infoTxt) infoTxt.innerText = config.info;
-
-    const target = new Date(config.fecha).getTime();
-
-    countdownInterval = setInterval(() => {
-        const now = new Date().getTime();
-        const diff = target - now;
-
-        if (diff < 0) {
-            clearInterval(countdownInterval);
-            if (container.querySelector('.reloj-display')) {
-                container.querySelector('.reloj-display').innerHTML = "<h3 style='color:#00ff88'>¡PARTIDO EN JUEGO! ⚽</h3>";
-            }
-            return;
-        }
-
-        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const s = Math.floor((diff % (1000 * 60)) / 1000);
-
-        if (dSpan) dSpan.innerText = d.toString().padStart(2, '0');
-        if (hSpan) hSpan.innerText = h.toString().padStart(2, '0');
-        if (mSpan) mSpan.innerText = m.toString().padStart(2, '0');
-        if (sSpan) sSpan.innerText = s.toString().padStart(2, '0');
-    }, 1000);
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    cambiarCategoria('primer');
-});
