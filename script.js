@@ -254,3 +254,72 @@ function abrirFicha(nombre, posicion, partidos, titular, amarillas, rojas, goles
     document.body.appendChild(modal);
     modal.onclick = (e) => { if (e.target === modal) modal.remove(); };
 }
+const fechasPartidos = {
+    'primer': { fecha: "April 26, 2026 18:30:00", info: "Idoya vs Cabanillas | Sábado 18:30h | San Roque" },
+    'segundo': { fecha: "April 25, 2026 17:00:00", info: "Idoya vs Izarra | Sábado 17:00h | Merkatondoa" },
+    'juvenil': { fecha: "April 26, 2026 12:00:00", info: "Juvenil vs Iruña | Domingo 12:00h | Iturtxipia" },
+    'cadete': { fecha: "April 25, 2026 16:00:00", info: "Cadete vs Asdefor | Sabado 16:00h | Iturtxipia" }
+};
+
+let countdownInterval; 
+
+function cambiarCategoria(categoria) {
+    const equipos = document.querySelectorAll('.team-container');
+    equipos.forEach(eq => eq.classList.add('hidden'));
+
+    const equipoActivo = document.getElementById('cat-' + categoria);
+    if (equipoActivo) {
+        equipoActivo.classList.remove('hidden');
+        mostrarSeccion('inicio');
+        // Llamamos a la función del reloj
+        iniciarCronometro(categoria);
+    }
+}
+
+function iniciarCronometro(cat) {
+    if (countdownInterval) clearInterval(countdownInterval);
+
+    const config = fechasPartidos[cat];
+    const container = document.getElementById('cat-' + cat);
+    
+    if (!container || !config) return;
+
+    // Buscamos los elementos dentro del contenedor del equipo
+    const infoTxt = container.querySelector('.reloj-info');
+    const dSpan = container.querySelector('.days');
+    const hSpan = container.querySelector('.hours');
+    const mSpan = container.querySelector('.minutes');
+    const sSpan = container.querySelector('.seconds');
+
+    if (infoTxt) infoTxt.innerText = config.info;
+
+    const target = new Date(config.fecha).getTime();
+
+    countdownInterval = setInterval(() => {
+        const now = new Date().getTime();
+        const diff = target - now;
+
+        if (diff < 0) {
+            clearInterval(countdownInterval);
+            if (container.querySelector('.reloj-display')) {
+                container.querySelector('.reloj-display').innerHTML = "<h3 style='color:#00ff88'>¡PARTIDO EN JUEGO! ⚽</h3>";
+            }
+            return;
+        }
+
+        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+        if (dSpan) dSpan.innerText = d.toString().padStart(2, '0');
+        if (hSpan) hSpan.innerText = h.toString().padStart(2, '0');
+        if (mSpan) mSpan.innerText = m.toString().padStart(2, '0');
+        if (sSpan) sSpan.innerText = s.toString().padStart(2, '0');
+    }, 1000);
+}
+
+// ESTA LÍNEA ES CLAVE: Activa el primer equipo automáticamente al cargar
+document.addEventListener('DOMContentLoaded', () => {
+    cambiarCategoria('primer');
+});
