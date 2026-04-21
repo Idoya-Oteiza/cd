@@ -284,7 +284,6 @@ function iniciarCronometro(cat) {
     
     if (!container || !config) return;
 
-    // Buscamos los elementos dentro del contenedor del equipo
     const infoTxt = container.querySelector('.reloj-info');
     const dSpan = container.querySelector('.days');
     const hSpan = container.querySelector('.hours');
@@ -319,7 +318,6 @@ function iniciarCronometro(cat) {
     }, 1000);
 }
 
-// ESTA LÍNEA ES CLAVE: Activa el primer equipo automáticamente al cargar
 document.addEventListener('DOMContentLoaded', () => {
     cambiarCategoria('primer');
 });
