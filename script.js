@@ -1,7 +1,7 @@
 const fechasPartidos = {
     'primer': { fecha: "April 26, 2026 18:30:00", info: "Cabanillas vs Idoya | San Roque" },
-    'segundo': { fecha: "April 25, 2026 17:00:00", info: "Izarra vs Idoya |  Merkatondoa" },
-    'juvenil': { fecha: "April 26, 2026 12:00:00", info: "Idoya vs Iruña |  Iturtxipia" },
+    'segundo': { fecha: "April 25, 2026 17:00:00", info: "Izarra vs Idoya | Merkatondoa" },
+    'juvenil': { fecha: "April 26, 2026 12:00:00", info: "Idoya vs Iruña | Iturtxipia" },
     'cadete': { fecha: "April 25, 2026 16:00:00", info: "Idoya vs Asdefor | Sabado 16:00h | Iturtxipia" }
 };
 
@@ -22,7 +22,6 @@ function cambiarCategoria(categoria) {
     if (equipoActivo) {
         equipoActivo.classList.remove('hidden');
         
-        // Aplicar fotos al fondo
         if (fotosCabecera[categoria]) {
             document.body.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('${fotosCabecera[categoria]}')`;
             document.body.style.backgroundAttachment = 'fixed';
@@ -92,9 +91,7 @@ function iniciarCronometro(cat) {
     }, 1000);
 }
 
-
 document.addEventListener('DOMContentLoaded', () => {
-
     cambiarCategoria('primer');
 
     const todasLasSeccionesJugadores = document.querySelectorAll('.view-section[id="jugadores"]');
@@ -162,7 +159,6 @@ document.addEventListener('DOMContentLoaded', () => {
         btnEfecto.style.background = efectoActivo ? '#0055ff' : '#cc0000';
     };
 
-    // Botones de Pizarra en Menús
     const menus = document.querySelectorAll('.shortcut-menu');
     menus.forEach(menu => {
         const btnPizarra = document.createElement('button');
@@ -287,11 +283,11 @@ function abrirFicha(nombre, posicion, partidos, titular, amarillas, rojas, goles
                     <label>Titular</label>
                 </div>
                 <div class="stat-item">
-                    <span style="color: #ffd700;">${amarillas}</span>
+                    <span style="color: #ffff00; text-shadow: 0 0 5px rgba(255,255,0,0.3);">${amarillas}</span>
                     <label>Amarillas</label>
                 </div>
                 <div class="stat-item">
-                    <span style="color: #ff4444;">${rojas}</span>
+                    <span style="color: #ff0000; text-shadow: 0 0 5px rgba(255,0,0,0.3);">${rojas}</span>
                     <label>Rojas</label>
                 </div>
                 <div class="stat-item item-goles" style="grid-column: span 2; border-color: #0055ff;">
