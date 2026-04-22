@@ -676,3 +676,70 @@ function cambiarCategoria(categoria) {
         width: 100%;
     }
 }
+.campo-tactico {
+    background: #050505;
+    border: 1px solid #333;
+    border-radius: 8px;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 10px 0;
+    position: relative;
+    background-image: linear-gradient(#222 1px, transparent 1px);
+    background-size: 100% 50%;
+}
+
+.linea-campo {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.jugador-t {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60px;
+}
+
+.jugador-t span {
+    background: #0055ff;
+    color: white;
+    font-size: 0.7rem;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+}
+
+.jugador-t p {
+    font-size: 0.65rem;
+    color: white;
+    margin-top: 2px;
+    text-transform: uppercase;
+    outline: none;
+    cursor: text;
+}
+.fila-partidos {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 25px;           
+    width: 100%;
+    max-width: 1300px;
+    margin: 30px auto;    
+    padding: 0 20px;
+}
+
+.card-informativa {
+    flex: 1;             
+    min-width: 0;
+}
+
+.reloj-display span {
+    font-size: 2.5rem; 
+}
