@@ -1,8 +1,8 @@
 const fechasPartidos = {
-    'primer': { fecha: "April 26, 2026 18:30:00", info: "Idoya vs Arenas | Iturtxipia" },
-    'segundo': { fecha: "April 25, 2026 17:00:00", info: "Liga Finalizada | Puesto 14" },
-    'juvenil': { fecha: "April 26, 2026 12:00:00", info: "Liga Finalizada | Puesto 4" },
-    'cadete': { fecha: "April 25, 2026 16:00:00", info: "Liga Finalizada | Puesto 6" }
+    'primer': { fecha: "May 10, 2026 18:00:00", info: "Idoya vs Arenas | Iturtxipia" },
+    'segundo': { fecha: "September 1, 2026 12:00:00", info: "Liga Finalizada | Puesto 14" },
+    'juvenil': { fecha: "September 1, 2026 12:00:00", info: "Liga Finalizada | Puesto 4" },
+    'cadete': { fecha: "September 1, 2026 12:00:00", info: "Liga Finalizada | Puesto 6" }
 };
 
 let countdownInterval; 
