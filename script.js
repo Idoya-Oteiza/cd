@@ -2,7 +2,7 @@ const fechasPartidos = {
     'primer': { fecha: "April 26, 2026 18:30:00", info: "Cabanillas vs Idoya | San Roque" },
     'segundo': { fecha: "April 25, 2026 17:00:00", info: "Izarra vs Idoya | Merkatondoa" },
     'juvenil': { fecha: "April 26, 2026 12:00:00", info: "Idoya vs Iruña | Iturtxipia" },
-    'cadete': { fecha: "April 25, 2026 16:00:00", info: "Idoya vs Asdefor | Sabado 16:00h | Iturtxipia" }
+    'cadete': { fecha: "April 25, 2026 16:00:00", info: "Idoya vs Asdefor | Iturtxipia" }
 };
 
 let countdownInterval; 
