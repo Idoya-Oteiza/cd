@@ -1,5 +1,5 @@
 const fechasPartidos = {
-    'primer': { fecha: "May 10, 2026 18:00:00", info: "Idoya vs Arenas | Iturtxipia" },
+    'primer': { fecha: "May 9, 2026 17:00:00", info: "Idoya vs Arenas | Iturtxipia" },
     'segundo': { fecha: "September 1, 2026 12:00:00", info: "Liga Finalizada | Puesto 14" },
     'juvenil': { fecha: "September 1, 2026 12:00:00", info: "Liga Finalizada | Puesto 4" },
     'cadete': { fecha: "September 1, 2026 12:00:00", info: "Liga Finalizada | Puesto 6" }
