@@ -1,32 +1,40 @@
 @media (max-width: 768px) {
     
+    body {
+        font-size: 14px;
+    }
+
     .team-container {
-        width: 100% !important;
-        padding: 10px;
-    }
-
-    .players-dark-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important;
-        gap: 10px;
-    }
-
-    .shortcut-menu {
-        grid-template-columns: 1fr 1fr; 
+        width: 95% !important;
+        margin: 10px auto !important;
+        padding: 10px !important;
     }
 
     .view-section table {
         display: block;
         overflow-x: auto;
         white-space: nowrap;
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .players-dark-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8px !important;
+    }
+
+    .shortcut-menu {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
     }
 
     #campo {
         width: 100% !important;
-        max-width: 350px;
-        height: 480px !important;
+        max-width: 320px;
+        height: 450px !important;
+        margin: 0 auto;
     }
 }
-
 .main-category-selector {
     background: #0a0a0a;
     padding: 15px;
