@@ -1,3 +1,5 @@
+/* --- TU CÓDIGO ORIGINAL (CORREGIDO Y ADAPTADO) --- */
+
 .main-category-selector {
     background: #0a0a0a;
     padding: 15px;
@@ -24,8 +26,8 @@
     font-weight: bold;
 }
 
-.team-contai
-r.hidden {
+/* Corregido el error de escritura aquí para que funcione la ocultación */
+.team-container.hidden {
     display: none;
 }
 
@@ -54,6 +56,10 @@ body {
     color: var(--text-white);
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     line-height: 1.6;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.5s ease-in-out;
 }
 
 .navbar-dark {
@@ -101,13 +107,16 @@ body {
 }
 
 .hero-dark {
-    height: 65vh;
+    width: 100%;
+    min-height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9)), ;
-    background-size: cover;
-    background-position: center;
+    text-align: center;
+    color: white;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
     margin-bottom: 60px;
     border-bottom: 1px solid var(--border);
 }
@@ -150,13 +159,20 @@ body {
 }
 
 .summary-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start; 
+    padding: 20px;
     margin-bottom: 80px;
 }
 
 .glass-card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+    height: auto; 
     background: var(--bg-card);
     padding: 40px;
     border-radius: 15px;
@@ -326,8 +342,12 @@ body {
     text-align: center;
 }
 
-.view-section { animation: fadeIn 0.6s ease-out forwards; }
-.hidden { display: none; }
+.view-section { 
+    animation: fadeIn 0.6s ease-out forwards; 
+    background: transparent !important;
+}
+
+.hidden { display: none !important; }
 
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
@@ -373,6 +393,7 @@ body {
 
 .highlight-idoya td { color: #fff; font-weight: 700; }
 .dark-table.classification tr:hover { background: rgba(255, 255, 255, 0.05); }
+
 .hero-section {
     width: 100%;
     min-height: 350px;
@@ -387,82 +408,6 @@ body {
     background-attachment: scroll;
     transition: background-image 0.5s ease-in-out;
     background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://i.postimg.cc/P5MsyMCN/Screenshot-2026-04-16-21-42-48.png');
-}
-body {
-    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://i.postimg.cc/P5MsyMCN/Screenshot-2026-04-16-21-42-48.png');
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-    transition: background-image 0.5s ease-in-out;
-}
-.hero-dark {
-    min-height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-}
-
-.hidden {
-    display: none !important;
-}
-.hero-dark {
-    width: 100%;
-    min-height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    
-    transition: background-image 0.5s ease-in-out;
-}
-
-.hidden {
-    display: none !important;
-}
-.team-container, .view-section {
-    background: transparent !important;
-}
-function cambiarCategoria(categoria) {
-    const fotosCabecera = {
-        'primer': 'https://i.postimg.cc/P5MsyMCN/Screenshot-2026-04-16-21-42-48.png',
-        'segundo': 'https://i.postimg.cc/8CnYXXNB/Screenshot-2026-04-16-21-42-29.png',
-        'juvenil': 'https://i.postimg.cc/8cLn51WL/Screenshot-2026-04-16-21-43-31.png',
-        'cadete': 'https://i.postimg.cc/284PjxFJ/Screenshot-2026-04-16-21-42-40.png'
-    };
-
-    const equipoActivo = document.getElementById('cat-' + categoria);
-    if (equipoActivo) {
-
-        if (fotosCabecera[categoria]) {
-            document.body.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('${fotosCabecera[categoria]}')`;
-        }
-        mostrarSeccion('inicio');
-    }
-}
-
-.summary-cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    align-items: flex-start; 
-    padding: 20px;
-}
-
-.glass-card {
-    flex: 1;
-    min-width: 300px;
-    max-width: 400px;
-    height: auto; 
 }
 
 .modal-jugador {
@@ -531,6 +476,7 @@ function cambiarCategoria(categoria) {
     from { transform: scale(0.8); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
 }
+
 .countdown-box {
     background: rgba(0, 0, 0, 0.6);
     border: 2px solid #0055ff;
@@ -552,7 +498,8 @@ function cambiarCategoria(categoria) {
 .reloj-display {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 12px;
+    margin: 15px 0;
 }
 
 .reloj-bloque {
@@ -587,14 +534,16 @@ function cambiarCategoria(categoria) {
     display: flex;
     justify-content: center;
     align-items: stretch;
-    gap: 20px;           
-    max-width: 1100px;
-    margin: 20px auto;
-    padding: 0 15px;
+    gap: 25px;           
+    width: 100%;
+    max-width: 1300px;
+    margin: 30px auto;    
+    padding: 0 20px;
 }
 
 .card-informativa {
-    flex: 1;             
+    flex: 1;              
+    min-width: 0;
     background: rgba(0, 0, 0, 0.7);
     border: 2px solid #0055ff;
     border-radius: 12px;
@@ -633,18 +582,17 @@ function cambiarCategoria(categoria) {
 }
 
 .reloj-display span {
-    font-size: 3rem;           
-    font-weight: 800;         
-    color: #ffffff;           
-    display: block;           
-    line-height: 1;           
+    font-size: 2.5rem;            
+    font-weight: 800;          
+    color: #ffffff;            
+    display: block;            
+    line-height: 1;            
     text-shadow: 0 0 15px rgba(0, 85, 255, 0.5); 
 }
 
-
 .reloj-display small {
     font-size: 0.75rem;       
-    color: #0055ff;         
+    color: #0055ff;          
     text-transform: uppercase;
     font-weight: bold;
     margin-top: 5px;          
@@ -661,21 +609,6 @@ function cambiarCategoria(categoria) {
     min-width: 80px;          
 }
 
-.reloj-display {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin: 15px 0;
-}
-
-@media (max-width: 768px) {
-    .fila-partidos {
-        flex-direction: column;
-    }
-    .card-informativa {
-        width: 100%;
-    }
-}
 .campo-tactico {
     background: #050505;
     border: 1px solid #333;
@@ -724,22 +657,37 @@ function cambiarCategoria(categoria) {
     outline: none;
     cursor: text;
 }
-.fila-partidos {
-    display: flex;
-    justify-content: space-between;
-    align-items: stretch;
-    gap: 25px;           
-    width: 100%;
-    max-width: 1300px;
-    margin: 30px auto;    
-    padding: 0 20px;
-}
 
-.card-informativa {
-    flex: 1;             
-    min-width: 0;
-}
+/* --- SECCIÓN MÓVIL (AÑADIDO AL FINAL) --- */
 
-.reloj-display span {
-    font-size: 2.5rem; 
+@media (max-width: 768px) {
+    .fila-partidos {
+        flex-direction: column;
+        padding: 0 10px;
+    }
+    .card-informativa {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .team-container {
+        width: 95% !important;
+        margin: 10px auto !important;
+    }
+    .shortcut-menu, .players-dark-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+    }
+    .view-section table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    .hero-inner h1 {
+        font-size: 2.5rem !important;
+    }
+    #campo {
+        width: 100% !important;
+        max-width: 320px;
+        height: 450px !important;
+    }
 }
