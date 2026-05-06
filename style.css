@@ -655,8 +655,6 @@ body {
     cursor: text;
 }
 
-/* --- SECCIÓN MÓVIL (AÑADIDO AL FINAL) --- */
-
 @media (max-width: 768px) {
     .fila-partidos {
         flex-direction: column;
