@@ -14,35 +14,34 @@
     <link rel="stylesheet" href="./style.css">
   </head>
   <body>  
- <div class="main-category-selector">
-    <div class="selector-content">
-        <label>Seleccione Categoría:</label>
-        <select id="team-switcher" onchange="cambiarCategoria(this.value)">
-            <option value="primer">PRIMER EQUIPO</option>
-            <option value="segundo">SEGUNDO EQUIPO</option>
-            <option value="juvenil">JUVENIL</option>
-            <option value="cadete">CADETE</option>
-        </select>
-    </div>
-</div>
+ <header class="navbar-dark">
+        <div class="nav-container">
+            <div class="brand">
+                <img src="https://clubshop.macron.com/media/macron/club/resized/250/J.png" alt="Escudo" class="nav-logo">
+                <span class="logo-accent">CD</span> IDOYA
+            </div>
+            <nav class="links">
+                <button class="nav-btn-main" onclick="mostrarSeccion('inicio')">INICIO</button>
+               <a id="link-fnf" href="https://www.futnavarra.es/pnfg/NPcd/NFG_VisEquipos?cod_primaria=1000119&Codigo_Equipo=3500" target="_blank">
+                <button class="nav-btn-main" type="button">FNF</button>
+            </a>
+            </nav>
+        </div>
+    </header>
 
-<div id="cat-primer" class="team-container">
-   <header class="navbar-dark">
-    <div class="nav-container">
-        <div class="brand">
-    <img src="https://clubshop.macron.com/media/macron/club/resized/250/J.png" alt="Escudo" class="nav-logo">
-    <span class="logo-accent">CD</span> IDOYA
-</div>
-        <nav class="links">
-            <button class="nav-btn-main" onclick="mostrarSeccion('inicio')">INICIO</button>
-            <a href="https://www.futnavarra.es/pnfg/NPcd/NFG_VisEquipos?cod_primaria=1000119&Codigo_Equipo=3500" 
-   target="_blank" 
-   rel="noopener noreferrer">
-   <button class="nav-btn-main" type="button">FNF</button>
-</a>
-        </nav>
+    <div class="main-category-selector">
+        <div class="selector-content">
+            <label>Seleccione Categoría:</label>
+            <select id="team-switcher" onchange="cambiarCategoria(this.value)">
+                <option value="primer">PRIMER EQUIPO</option>
+                <option value="segundo">SEGUNDO EQUIPO</option>
+                <option value="juvenil">JUVENIL</option>
+                <option value="cadete">CADETE</option>
+            </select>
+        </div>
     </div>
-</header>
+<div id="cat-primer" class="team-container">
+
 <main class="container">
     <section id="inicio" class="view-section">
         <div class="hero-dark">
@@ -423,22 +422,7 @@
 </div>
 
 <div id="cat-segundo" class="team-container hidden">
-   <header class="navbar-dark">
-    <div class="nav-container">
-        <div class="brand">
-    <img src="https://clubshop.macron.com/media/macron/club/resized/250/J.png" alt="Escudo" class="nav-logo">
-    <span class="logo-accent">CD</span> IDOYA
-</div>
-        <nav class="links">
-            <button class="nav-btn-main" onclick="mostrarSeccion('inicio')">INICIO</button>
-            <a href="https://www.futnavarra.es/pnfg/NPcd/NFG_VisEquipos?cod_primaria=1000119&Codigo_Equipo=4916" 
-   target="_blank" 
-   rel="noopener noreferrer">
-   <button class="nav-btn-main" type="button">FNF</button>
-</a>
-        </nav>
-    </div>
-</header>
+  
 <main class="container">
     <section id="inicio" class="view-section">
         <div class="hero-dark">
@@ -844,22 +828,7 @@
     </div>
 
 <div id="cat-juvenil" class="team-container hidden">
-  <header class="navbar-dark">
-    <div class="nav-container">
-         <div class="brand">
-    <img src="https://clubshop.macron.com/media/macron/club/resized/250/J.png" alt="Escudo" class="nav-logo">
-    <span class="logo-accent">CD</span> IDOYA
-</div>
-        <nav class="links">
-            <button class="nav-btn-main" onclick="mostrarSeccion('inicio')">INICIO</button>
-            <a href="https://www.futnavarra.es/pnfg/NPcd/NFG_VisEquipos?cod_primaria=1000119&Codigo_Equipo=6461" 
-   target="_blank" 
-   rel="noopener noreferrer">
-   <button class="nav-btn-main" type="button">FNF</button>
-</a>
-        </nav>
-    </div>
-</header>
+  
 <main class="container">
     <section id="inicio" class="view-section">
         <div class="hero-dark">
@@ -1306,22 +1275,7 @@
     </div>
 
 <div id="cat-cadete" class="team-container hidden">
-   <header class="navbar-dark">
-    <div class="nav-container">
-         <div class="brand">
-    <img src="https://clubshop.macron.com/media/macron/club/resized/250/J.png" alt="Escudo" class="nav-logo">
-    <span class="logo-accent">CD</span> IDOYA
-</div>
-        <nav class="links">
-            <button class="nav-btn-main" onclick="mostrarSeccion('inicio')">INICIO</button>
-            <a href="https://www.futnavarra.es/pnfg/NPcd/NFG_VisEquipos?cod_primaria=1000119&Codigo_Equipo=6457" 
-   target="_blank" 
-   rel="noopener noreferrer">
-   <button class="nav-btn-main" type="button">FNF</button>
-</a>
-        </nav>
-    </div>
-</header>
+   
 <main class="container">
     <section id="inicio" class="view-section">
         <div class="hero-dark">
