@@ -1,0 +1,21 @@
+{
+  "name": "CD Idoya Oficial",
+  "short_name": "Idoya",
+  "description": "Aplicación Oficial del Club Deportivo Idoya de Oteiza",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#050505",
+  "theme_color": "#0055ff",
+  "icons": [
+    {
+      "src": "https://i.postimg.cc/P5MsyMCN/Screenshot-2026-04-16-21-42-48.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://i.postimg.cc/P5MsyMCN/Screenshot-2026-04-16-21-42-48.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
