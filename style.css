@@ -126,7 +126,6 @@ body {
     background-position: center !important;
     background-repeat: no-repeat !important;
     margin-bottom: 60px;
-    border-bottom: 1px solid var(--border);
 }
 
 .nav-logo {
