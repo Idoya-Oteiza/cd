@@ -306,3 +306,26 @@ function abrirFicha(nombre, posicion, partidos, titular, amarillas, rojas, goles
     document.body.appendChild(modal);
     modal.onclick = (e) => { if (e.target === modal) modal.remove(); };
 }
+let lastScrollTop = 0;
+const navbar = document.querySelector('.navbar-dark');
+const selector = document.querySelector('.main-category-selector');
+
+window.addEventListener('scroll', () => {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const navHeight = navbar.offsetHeight;
+
+    if (scrollTop > lastScrollTop && scrollTop > 100) {
+        navbar.style.transform = `translateY(-${navHeight}px)`;
+        if (selector) selector.style.top = "0px";
+    } else {
+        navbar.style.transform = "translateY(0)";
+        if (selector) selector.style.top = navHeight + "px";
+    }
+
+    if (scrollTop <= 0) {
+        navbar.style.transform = "translateY(0)";
+        if (selector) selector.style.top = navHeight + "px";
+    }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+}, { passive: true });
