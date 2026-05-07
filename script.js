@@ -4,16 +4,29 @@ const fechasPartidos = {
     'juvenil': { fecha: "September 1, 2026 12:00:00", info: "Liga Finalizada | A la espera de la 26/27" },
     'cadete': { fecha: "September 1, 2026 12:00:00", info: "Liga Finalizada | A la espera de la 26/27" }
 };
-
 let countdownInterval; 
 
 function cambiarCategoria(categoria) {
+  const urlsEquipos = {
+    'primer': 'https://www.futnavarra.es/pnfg/NPcd/NFG_VisEquipos?cod_primaria=1000119&Codigo_Equipo=3500',
+    'segundo': 'https://www.futnavarra.es/pnfg/NPcd/NFG_VisEquipos?cod_primaria=1000119&Codigo_Equipo=4916',
+    'juvenil': 'https://www.futnavarra.es/pnfg/NPcd/NFG_VisEquipos?cod_primaria=1000119&Codigo_Equipo=6461',
+    'cadete': 'https://www.futnavarra.es/pnfg/NPcd/NFG_VisEquipos?cod_primaria=1000119&Codigo_Equipo=6457'
+};
+  
     const fotosCabecera = {
         'primer': 'https://i.postimg.cc/P5MsyMCN/Screenshot-2026-04-16-21-42-48.png',
         'segundo': 'https://i.postimg.cc/8CnYXXNB/Screenshot-2026-04-16-21-42-29.png',
         'juvenil': 'https://i.postimg.cc/8cLn51WL/Screenshot-2026-04-16-21-43-31.png',
         'cadete': 'https://i.postimg.cc/284PjxFJ/Screenshot-2026-04-16-21-42-40.png'
     };
+
+    // --- ACTUALIZACIÓN DINÁMICA DEL BOTÓN FNF ---
+    const enlaceFNF = document.getElementById('link-fnf');
+    if (enlaceFNF && urlsEquipos[categoria]) {
+        enlaceFNF.href = urlsEquipos[categoria];
+    }
+    // --------------------------------------------
 
     const equipos = document.querySelectorAll('.team-container');
     equipos.forEach(eq => eq.classList.add('hidden'));
@@ -306,6 +319,7 @@ function abrirFicha(nombre, posicion, partidos, titular, amarillas, rojas, goles
     document.body.appendChild(modal);
     modal.onclick = (e) => { if (e.target === modal) modal.remove(); };
 }
+
 let lastScrollTop = 0;
 const navbar = document.querySelector('.navbar-dark');
 const selector = document.querySelector('.main-category-selector');
