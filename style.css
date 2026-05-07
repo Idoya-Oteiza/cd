@@ -2,13 +2,13 @@
     background: #0a0a0a;
     padding: 15px;
     border-bottom: 2px solid #cc0000;
-    position: fixed;
-    top: 94px;
+    position: fixed !important;
+    top: 110px;
     left: 0;
     width: 100%;
     z-index: 9999;
     text-align: center;
-    transition: top 0.1s ease-in-out;
+    transition: top 0.3s ease-in-out;
 }
 
 .selector-content label {
@@ -315,6 +315,8 @@ body {
     border-radius: 8px;
     cursor: pointer;
     font-weight: 700;
+    display: block;     
+    margin: 20px;
 }
 
 .ascenso-centered-content {
