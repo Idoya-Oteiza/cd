@@ -1,5 +1,5 @@
 const fechasPartidos = {
-    'primer': { fecha: "May 9, 2026 17:00:00", info: "Idoya vs Arenas | Iturtxipia" },
+    'primer': { fecha: "May 16, 2026 17:00:00", info: "Cirbonero vs Idoya | Iturtxipia" },
     'segundo': { fecha: "September 1, 2026 12:00:00", info: "Liga Finalizada | A la espera de la 26/27" },
     'juvenil': { fecha: "September 1, 2026 12:00:00", info: "Liga Finalizada | A la espera de la 26/27" },
     'cadete': { fecha: "September 1, 2026 12:00:00", info: "Liga Finalizada | A la espera de la 26/27" }
@@ -21,12 +21,10 @@ function cambiarCategoria(categoria) {
         'cadete': 'https://i.postimg.cc/284PjxFJ/Screenshot-2026-04-16-21-42-40.png'
     };
 
-    // --- ACTUALIZACIÓN DINÁMICA DEL BOTÓN FNF ---
     const enlaceFNF = document.getElementById('link-fnf');
     if (enlaceFNF && urlsEquipos[categoria]) {
         enlaceFNF.href = urlsEquipos[categoria];
     }
-    // --------------------------------------------
 
     const equipos = document.querySelectorAll('.team-container');
     equipos.forEach(eq => eq.classList.add('hidden'));
