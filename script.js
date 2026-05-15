@@ -1,3 +1,4 @@
+/* CONFIGURACIÓN DE FECHAS - Aquí se guardan los próximos partidos y el mensaje de estado para cada equipo */
 const fechasPartidos = {
   primer: {
     fecha: "May 16, 2026 17:00:00",
@@ -18,16 +19,13 @@ const fechasPartidos = {
 };
 let countdownInterval;
 
+/* CAMBIO DE CATEGORÍA - Gestiona qué equipo se muestra, cambia la imagen de fondo y actualiza el enlace a la FNF */
 function cambiarCategoria(categoria) {
   const urlsEquipos = {
-    primer:
-      "https://www.futnavarra.es/pnfg/NPcd/NFG_VisEquipos?cod_primaria=1000119&Codigo_Equipo=3500",
-    segundo:
-      "https://www.futnavarra.es/pnfg/NPcd/NFG_VisEquipos?cod_primaria=1000119&Codigo_Equipo=4916",
-    juvenil:
-      "https://www.futnavarra.es/pnfg/NPcd/NFG_VisEquipos?cod_primaria=1000119&Codigo_Equipo=6461",
-    cadete:
-      "https://www.futnavarra.es/pnfg/NPcd/NFG_VisEquipos?cod_primaria=1000119&Codigo_Equipo=6457",
+    primer: "https://www.futnavarra.es/pnfg/NPcd/NFG_VisEquipos?cod_primaria=1000119&Codigo_Equipo=3500",
+    segundo: "https://www.futnavarra.es/pnfg/NPcd/NFG_VisEquipos?cod_primaria=1000119&Codigo_Equipo=4916",
+    juvenil: "https://www.futnavarra.es/pnfg/NPcd/NFG_VisEquipos?cod_primaria=1000119&Codigo_Equipo=6461",
+    cadete: "https://www.futnavarra.es/pnfg/NPcd/NFG_VisEquipos?cod_primaria=1000119&Codigo_Equipo=6457",
   };
 
   const fotosCabecera = {
@@ -62,6 +60,7 @@ function cambiarCategoria(categoria) {
   }
 }
 
+/* NAVEGACIÓN INTERNA - Oculta la vista actual y muestra la sección elegida (Plantilla, Resultados, etc.) */
 function mostrarSeccion(seccionId) {
   const equipoActivo = document.querySelector(".team-container:not(.hidden)");
   if (!equipoActivo) return;
@@ -76,6 +75,7 @@ function mostrarSeccion(seccionId) {
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
+/* CRONÓMETRO - Calcula el tiempo restante hasta el partido y actualiza los números en pantalla cada segundo */
 function iniciarCronometro(cat) {
   if (countdownInterval) clearInterval(countdownInterval);
 
@@ -119,16 +119,15 @@ function iniciarCronometro(cat) {
   }, 1000);
 }
 
+/* INICIALIZADOR AL CARGAR - Configura buscadores de jugadores, colores de resultados y botones especiales */
 document.addEventListener("DOMContentLoaded", () => {
   cambiarCategoria("primer");
 
-  const todasLasSeccionesJugadores = document.querySelectorAll(
-    '.view-section[id="jugadores"]',
-  );
+  // Configuración de los buscadores dinámicos de jugadores en cada equipo
+  const todasLasSeccionesJugadores = document.querySelectorAll('.view-section[id="jugadores"]');
   todasLasSeccionesJugadores.forEach((seccion, index) => {
     const searchContainer = document.createElement("div");
-    searchContainer.style =
-      "padding: 0 20px 30px 20px; max-width: 1300px; margin: 0 auto;";
+    searchContainer.style = "padding: 0 20px 30px 20px; max-width: 1300px; margin: 0 auto;";
     const inputId = `buscadorJugadores_${index}`;
 
     searchContainer.innerHTML = `
@@ -142,22 +141,17 @@ document.addEventListener("DOMContentLoaded", () => {
       grid.parentNode.insertBefore(searchContainer, grid);
       document.getElementById(inputId).addEventListener("keyup", (e) => {
         const filtro = e.target.value.toLowerCase();
-        const tarjetas = seccion.querySelectorAll(
-          ".player-box:not(.coach-box)",
-        );
+        const tarjetas = seccion.querySelectorAll(".player-box:not(.coach-box)");
         tarjetas.forEach((t) => {
-          t.style.display = t.innerText.toLowerCase().includes(filtro)
-            ? "flex"
-            : "none";
+          t.style.display = t.innerText.toLowerCase().includes(filtro) ? "flex" : "none";
         });
       });
     }
   });
 
+  // Función para poner en verde las victorias y en rojo las derrotas automáticamente
   const colorearTodosLosResultados = () => {
-    const todasLasFilas = document.querySelectorAll(
-      '.view-section[id="resultados"] tbody tr',
-    );
+    const todasLasFilas = document.querySelectorAll('.view-section[id="resultados"] tbody tr');
     todasLasFilas.forEach((fila) => {
       const celdas = fila.querySelectorAll("td");
       if (celdas.length < 3) return;
@@ -186,10 +180,10 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   colorearTodosLosResultados();
 
+  // Botón flotante para activar el efecto visual de "estadio/brillo"
   const btnEfecto = document.createElement("button");
   btnEfecto.innerHTML = "🏟️";
-  btnEfecto.style =
-    "position: fixed; bottom: 20px; left: 20px; z-index: 9999; padding: 15px; border-radius: 50%; border: none; background: #cc0000; cursor: pointer; font-size: 1.5rem; transition: 0.3s;";
+  btnEfecto.style = "position: fixed; bottom: 20px; left: 20px; z-index: 9999; padding: 15px; border-radius: 50%; border: none; background: #cc0000; cursor: pointer; font-size: 1.5rem; transition: 0.3s;";
   document.body.appendChild(btnEfecto);
 
   let efectoActivo = false;
@@ -199,6 +193,7 @@ document.addEventListener("DOMContentLoaded", () => {
     btnEfecto.style.background = efectoActivo ? "#0055ff" : "#cc0000";
   };
 
+  // Añade el botón de "Pizarra" a todos los menús de acceso directo
   const menus = document.querySelectorAll(".shortcut-menu");
   menus.forEach((menu) => {
     const btnPizarra = document.createElement("button");
@@ -214,10 +209,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+/* LÓGICA DE LA PIZARRA - Crea un sistema de arrastrar y soltar (Drag & Drop) para colocar jugadores en el campo */
 function abrirPizarra(equipoPadre) {
   const overlay = document.createElement("div");
-  overlay.style =
-    "position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(5,5,5,0.98); z-index:10001; overflow-y:auto; padding: 10px; font-family: sans-serif;";
+  overlay.style = "position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(5,5,5,0.98); z-index:10001; overflow-y:auto; padding: 10px; font-family: sans-serif;";
 
   const nombres = Array.from(
     equipoPadre.querySelectorAll(".player-box:not(.coach-box) strong"),
@@ -256,9 +251,7 @@ function abrirPizarra(equipoPadre) {
   searchInput.addEventListener("input", (e) => {
     const term = e.target.value.toLowerCase();
     overlay.querySelectorAll(".p-item").forEach((item) => {
-      item.style.display = item.innerText.toLowerCase().includes(term)
-        ? "block"
-        : "none";
+      item.style.display = item.innerText.toLowerCase().includes(term) ? "block" : "none";
     });
   });
 
@@ -272,10 +265,7 @@ function abrirPizarra(equipoPadre) {
   let itemSeleccionado = null;
 
   overlay.addEventListener("dragstart", (e) => {
-    if (
-      e.target.classList.contains("p-item") ||
-      e.target.classList.contains("ficha-jugador")
-    ) {
+    if (e.target.classList.contains("p-item") || e.target.classList.contains("ficha-jugador")) {
       itemSeleccionado = e.target;
       e.dataTransfer.setData("text", e.target.innerText);
     }
@@ -289,17 +279,11 @@ function abrirPizarra(equipoPadre) {
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
 
-      if (
-        itemSeleccionado &&
-        itemSeleccionado.classList.contains("ficha-jugador")
-      ) {
+      if (itemSeleccionado && itemSeleccionado.classList.contains("ficha-jugador")) {
         zona.appendChild(itemSeleccionado);
         itemSeleccionado.style.left = x - 35 + "px";
         itemSeleccionado.style.top = y - 12 + "px";
-      } else if (
-        itemSeleccionado &&
-        itemSeleccionado.classList.contains("p-item")
-      ) {
+      } else if (itemSeleccionado && itemSeleccionado.classList.contains("p-item")) {
         const ficha = document.createElement("div");
         ficha.className = "ficha-jugador";
         ficha.innerText = e.dataTransfer.getData("text");
@@ -315,16 +299,8 @@ function abrirPizarra(equipoPadre) {
   });
 }
 
-function abrirFicha(
-  nombre,
-  posicion,
-  partidos,
-  titular,
-  amarillas,
-  rojas,
-  goles,
-  equipo,
-) {
+/* FICHA TÉCNICA INDIVIDUAL - Genera y muestra el modal con las estadísticas detalladas de cada jugador */
+function abrirFicha(nombre, posicion, partidos, titular, amarillas, rojas, goles, equipo) {
   if (document.querySelector(".modal-jugador")) return;
 
   const modal = document.createElement("div");
@@ -371,6 +347,7 @@ function abrirFicha(
   };
 }
 
+/* COMPORTAMIENTO DEL SCROLL - Oculta la barra de navegación al bajar y la muestra al subir */
 let lastScrollTop = 0;
 const navbar = document.querySelector(".navbar-dark");
 const selector = document.querySelector(".main-category-selector");
