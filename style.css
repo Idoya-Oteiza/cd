@@ -1,762 +1,808 @@
 /* SELECTOR SUPERIOR DE CATEGORÍA (FIJO) - Controla la barra para cambiar entre Primer Equipo, Juvenil, etc. */
 .main-category-selector {
-    background: #0a0a0a;
-    padding: 15px;
-    border-bottom: 2px solid #cc0000;
-    position: fixed !important;
-    top: 110px;
-    left: 0;
-    width: 100%;
-    z-index: 9999;
-    text-align: center;
-    transition: top 0.3s ease-in-out;
+  background: #0a0a0a;
+  padding: 15px;
+  border-bottom: 2px solid #cc0000;
+  position: fixed !important;
+  top: 110px;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  text-align: center;
+  transition: top 0.3s ease-in-out;
 }
 
 /* ETIQUETAS DEL SELECTOR - Estilo del texto que acompaña a los desplegables */
 .selector-content label {
-    color: white;
-    font-weight: bold;
-    margin-right: 10px;
+  color: white;
+  font-weight: bold;
+  margin-right: 10px;
 }
 
 /* SELECTOR DE EQUIPO (DESPLEGABLE) - Estilo del menú 'select' para elegir equipo */
 #team-switcher {
-    padding: 8px 15px;
-    background: #1a1a1a;
-    color: white;
-    border: 1px solid #0055ff;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
+  padding: 8px 15px;
+  background: #1a1a1a;
+  color: white;
+  border: 1px solid #0055ff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 /* CLASES DE UTILIDAD PARA OCULTAR - Se usan para mostrar/ocultar secciones mediante JavaScript */
-.team-container.hidden, .view-section.hidden {
-    display: none;
+.team-container.hidden,
+.view-section.hidden {
+  display: none;
 }
 
 /* VARIABLES DE DISEÑO (:ROOT) - Aquí se definen los colores oficiales (Azul y Rojo) para usarlos en todo el CSS */
 :root {
-    --primary-blue: #0055ff;
-    --primary-red: #cc0000;
-    --bg-black: #050505;
-    --bg-card: #111111;
-    --text-white: #ffffff;
-    --text-grey: #a0a0a0;
-    --border: #222222;
+  --primary-blue: #0055ff;
+  --primary-red: #cc0000;
+  --bg-black: #050505;
+  --bg-card: #111111;
+  --text-white: #ffffff;
+  --text-grey: #a0a0a0;
+  --border: #222222;
 }
 
 /* RESETEO UNIVERSAL - Elimina márgenes por defecto del navegador para que todo encaje bien */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 /* CONFIGURACIÓN DEL BODY - Fondo negro, fuente Segoe UI y el espacio superior para que la navbar no tape el contenido */
 body {
-    background-color: var(--bg-black);
-    color: var(--text-white);
-    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.6;
-    padding-top: 160px;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-    transition: background-image 0.5s ease-in-out;
+  background-color: var(--bg-black);
+  color: var(--text-white);
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  padding-top: 160px;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 0.5s ease-in-out;
 }
 
 /* NAVBAR PRINCIPAL - Barra superior con efecto de desenfoque (blur) y borde rojo inferior */
 .navbar-dark {
-    background-color: rgba(0, 0, 0, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 2px solid var(--primary-red);
-    padding: 1.2rem 5%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 10000;
-    transition: transform 0.3s ease-in-out;
+  background-color: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid var(--primary-red);
+  padding: 1.2rem 5%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10000;
+  transition: transform 0.3s ease-in-out;
 }
 
 /* CONTENEDOR DE NAVEGACIÓN - Alinea el logo y los botones en los extremos */
 .nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1400px;
-    margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 /* BRAND/LOGO - Estilo del nombre del club y el acento de color en el texto */
 .brand {
-    font-size: 1.8rem;
-    font-weight: 800;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    letter-spacing: -1px;
+  font-size: 1.8rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  letter-spacing: -1px;
 }
 
 .logo-accent {
-    color: #cc0000 !important;
+  color: #cc0000 !important;
 }
 
 /* BOTONES DE LA NAVBAR - Estilo de los botones y efecto hover (cambio a azul al pasar el ratón) */
 .nav-btn-main {
-    background: transparent;
-    border: 1px solid var(--border);
-    color: var(--text-white);
-    padding: 10px 24px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: all 0.3s ease;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-white);
+  padding: 10px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 
 .nav-btn-main:hover {
-    background: var(--primary-blue);
-    border-color: var(--primary-blue);
-    transform: translateY(-2px);
+  background: var(--primary-blue);
+  border-color: var(--primary-blue);
+  transform: translateY(-2px);
 }
 
 /* SECCIÓN HERO (PORTADA) - Contenedor grande para la imagen principal de la página */
 .hero-dark {
-    width: 100%;
-    min-height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-    margin-bottom: 60px;
+  width: 100%;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  margin-bottom: 60px;
 }
 
 /* LOGOTIPO DE LA NAVBAR - Tamaño y efecto de aumento al pasar el ratón */
 .nav-logo {
-    height: 70px;
-    width: auto;
-    object-fit: contain;
-    transition: transform 0.1s ease;
+  height: 70px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.1s ease;
 }
 
 .brand:hover .nav-logo {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 /* TEXTO INTERIOR DEL HERO - Controla el tamaño de los títulos grandes de la portada */
 .hero-inner {
-    text-align: center;
-    max-width: 800px;
-    padding: 0 20px;
+  text-align: center;
+  max-width: 800px;
+  padding: 0 20px;
 }
 
 .hero-inner h1 {
-    font-size: clamp(2.5rem, 8vw, 5.5rem);
-    font-weight: 900;
-    letter-spacing: -2px;
-    margin: 15px 0;
+  font-size: clamp(2.5rem, 8vw, 5.5rem);
+  font-weight: 900;
+  letter-spacing: -2px;
+  margin: 15px 0;
 }
 
 /* ETIQUETA ROJA (BADGE) - Pequeño recuadro rojo para resaltar textos cortos */
 .badge {
-    background: var(--primary-red);
-    padding: 6px 16px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+  background: var(--primary-red);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 /* LÍNEA DECORATIVA AZUL - Separador estético debajo de los títulos */
 .line-decorator {
-    width: 80px;
-    height: 4px;
-    background: var(--primary-blue);
-    margin: 25px auto;
-    border-radius: 2px;
+  width: 80px;
+  height: 4px;
+  background: var(--primary-blue);
+  margin: 25px auto;
+  border-radius: 2px;
 }
 
 /* CONTENEDOR PRINCIPAL - Centra el contenido y da márgenes laterales */
 .container {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 0 20px 100px;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px 100px;
 }
 
 /* TARJETAS DE RESUMEN - Estilos para los cuadros informativos (Estadio, Club, etc.) */
 .summary-cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 20px;
-    margin-bottom: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  margin-bottom: 80px;
 }
 
 .glass-card {
-    flex: 1;
-    min-width: 300px;
-    max-width: 400px;
-    height: auto;
-    background: var(--bg-card);
-    padding: 40px;
-    border-radius: 15px;
-    border: 1px solid var(--border);
-    border-top: 4px solid var(--primary-blue);
-    transition: transform 0.3s ease;
+  flex: 1;
+  min-width: 300px;
+  max-width: 400px;
+  height: auto;
+  background: var(--bg-card);
+  padding: 40px;
+  border-radius: 15px;
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--primary-blue);
+  transition: transform 0.3s ease;
 }
 
-.glass-card:hover { transform: translateY(-5px); }
+.glass-card:hover {
+  transform: translateY(-5px);
+}
 
 /* MENÚ DE ACCESOS DIRECTOS - Cuadrícula para los botones de Plantilla, Resultados, etc. */
 .shortcut-menu {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
 }
 
 /* TARJETAS DE ACCIÓN - Botones grandes con iconos y efectos de elevación al pasar el ratón */
 .action-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    padding: 60px 20px;
-    border-radius: 20px;
-    color: white;
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    text-align: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 60px 20px;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-align: center;
 }
 
 .action-card:hover {
-    transform: translateY(-12px);
-    border-color: var(--primary-red);
-    box-shadow: 0 15px 40px rgba(204, 0, 0, 0.2);
+  transform: translateY(-12px);
+  border-color: var(--primary-red);
+  box-shadow: 0 15px 40px rgba(204, 0, 0, 0.2);
 }
 
 .action-card .icon {
-    font-size: 3rem;
-    margin-bottom: 15px;
-    display: block;
+  font-size: 3rem;
+  margin-bottom: 15px;
+  display: block;
 }
 
 .card-label {
-    display: block;
-    font-size: 1.4rem;
-    font-weight: 800;
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 800;
 }
 
 /* REJILLA DE JUGADORES - Organiza las fichas de los jugadores en filas y columnas */
 .players-dark-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 25px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
 }
 
 /* CAJA DEL ENTRENADOR - Resaltada con un borde superior rojo */
-.coach-box { border-top: 4px solid var(--primary-red); }
+.coach-box {
+  border-top: 4px solid var(--primary-red);
+}
 
 /* NÚMEROS DE DORSAL - Estilo para los números grandes en las fichas de plantilla */
 .num {
-    font-size: 2.8rem;
-    font-weight: 900;
-    color: var(--primary-red);
-    margin-right: 25px;
-    min-width: 50px;
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: var(--primary-red);
+  margin-right: 25px;
+  min-width: 50px;
 }
 
 /* ENVOLTORIO DE TABLAS - Permite scroll horizontal si la tabla es más ancha que la pantalla */
 .table-wrapper {
-    background: var(--bg-card);
-    border-radius: 12px;
-    padding: 30px;
-    overflow-x: auto;
-    border: 1px solid var(--border);
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 30px;
+  overflow-x: auto;
+  border: 1px solid var(--border);
 }
 
 /* TABLA OSCURA - Estilo base para las tablas de resultados y clasificación */
 .dark-table {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 700px;
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px;
 }
 
 .dark-table th {
-    text-align: left;
-    padding: 20px;
-    color: var(--primary-blue);
-    border-bottom: 2px solid var(--border);
+  text-align: left;
+  padding: 20px;
+  color: var(--primary-blue);
+  border-bottom: 2px solid var(--border);
 }
 
 .dark-table td {
-    padding: 16px 20px;
-    border-bottom: 1px solid var(--border);
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
 }
 
 /* CABECERA FLEXIBLE - Alinea títulos y botones de retroceso */
 .header-flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
 }
 
 /* BOTÓN DE VOLVER - El botón rojo para regresar al inicio de la sección */
 .back-link {
-    background: var(--primary-red);
-    color: white;
-    border: none;
-    padding: 12px 30px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 700;
-    display: block;
-    margin: 40px;
+  background: var(--primary-red);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  display: block;
+  margin: 40px;
 }
 
 /* SECCIÓN DE ASCENSO - Ajustes de centrado para la fase final/playoffs */
 .ascenso-centered-content {
-    display: flex;
-    text-align: center;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 /* CONTENEDOR DE ELIMINATORIAS - Organiza los bloques de partidos (Cuartos, Semis, Final) */
 .bracket-container {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
 }
 
 .bracket-round {
-    background: rgba(255, 255, 255, 0.03);
-    padding: 30px;
-    border-radius: 15px;
-    border: 1px solid #222;
-    width: 100%;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 30px;
+  border-radius: 15px;
+  border: 1px solid #222;
+  width: 100%;
 }
 
 .round-title {
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 25px;
-    border-left: 4px solid var(--primary-red);
-    padding-left: 15px;
-    text-align: left;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 25px;
+  border-left: 4px solid var(--primary-red);
+  padding-left: 15px;
+  text-align: left;
 }
 
 /* TARJETA DE PARTIDO INDIVIDUAL - Estilo para un enfrentamiento específico */
 .match-card {
-    background: #111;
-    border: 1px solid #333;
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
 }
 
 .match-teams {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1.2rem;
-    font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 700;
 }
 
 /* MARCADOR/PUNTUACIÓN - Estilo para el resultado del partido en color dorado */
 .score {
-    background: #222;
-    padding: 5px 15px;
-    border-radius: 5px;
-    color: gold;
+  background: #222;
+  padding: 5px 15px;
+  border-radius: 5px;
+  color: gold;
 }
 
 .match-details {
-    margin-top: 15px;
-    font-size: 0.85rem;
-    color: #777;
-    text-align: center;
+  margin-top: 15px;
+  font-size: 0.85rem;
+  color: #777;
+  text-align: center;
 }
 
 /* ANIMACIÓN FADE-IN - Efecto suave de aparición cuando cambias de sección */
 .view-section {
-    animation: fadeIn 0.6s ease-out forwards;
-    background: transparent !important;
+  animation: fadeIn 0.6s ease-out forwards;
+  background: transparent !important;
 }
-.hidden { display: none !important; }
+.hidden {
+  display: none !important;
+}
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* FOOTER - El pie de página con el borde superior gris */
 .main-footer {
-    text-align: center;
-    padding: 80px 20px;
-    border-top: 1px solid var(--border);
+  text-align: center;
+  padding: 80px 20px;
+  border-top: 1px solid var(--border);
 }
 
 /* TEXTOS GRISES - Para leyendas secundarias o estados finales */
-.final, .cantera, .resultado, .tabla { color: grey; }
+.final,
+.cantera,
+.resultado,
+.tabla {
+  color: grey;
+}
 
 /* CONTENEDOR DE CLASIFICACIÓN - Espaciado y animación para la tabla de liga */
 .classification-container {
-    margin-top: 60px;
-    width: 100%;
-    animation: fadeIn 0.8s ease-out;
+  margin-top: 60px;
+  width: 100%;
+  animation: fadeIn 0.8s ease-out;
 }
 
 .section-title-alt {
-    font-size: 1.5rem;
-    font-weight: 800;
-    margin-bottom: 25px;
-    text-align: center;
-    color: var(--text-white);
-    letter-spacing: 1px;
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 25px;
+  text-align: center;
+  color: var(--text-white);
+  letter-spacing: 1px;
 }
 
 /* TABLA DE CLASIFICACIÓN ESPECÍFICA - Cabeceras azules y filas interactivas */
-.dark-table.classification { border-collapse: collapse; font-size: 1rem; }
+.dark-table.classification {
+  border-collapse: collapse;
+  font-size: 1rem;
+}
 .dark-table.classification th {
-    background: #1a1a1a;
-    color: var(--primary-blue);
-    text-transform: uppercase;
+  background: #1a1a1a;
+  color: var(--primary-blue);
+  text-transform: uppercase;
 }
 
-.team-name { text-align: left !important; font-weight: 500; }
+.team-name {
+  text-align: left !important;
+  font-weight: 500;
+}
 
 /* RESALTADO DEL IDOYA - Aplica un fondo rojo suave a la fila donde está tu equipo */
 .highlight-idoya {
-    background: rgba(204, 0, 0, 0.2) !important;
-    border-left: 4px solid var(--primary-red);
+  background: rgba(204, 0, 0, 0.2) !important;
+  border-left: 4px solid var(--primary-red);
 }
 
-.highlight-idoya td { color: #fff; font-weight: 700; }
-.dark-table.classification tr:hover { background: rgba(255, 255, 255, 0.05); }
+.highlight-idoya td {
+  color: #fff;
+  font-weight: 700;
+}
+.dark-table.classification tr:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
 
 /* SECCIÓN HERO CON IMAGEN - Portada secundaria que incluye la imagen de fondo específica */
 .hero-section {
-    width: 100%;
-    min-height: 350px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    transition: background-image 0.5s ease-in-out;
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://i.postimg.cc/P5MsyMCN/Screenshot-2026-04-16-21-42-48.png');
+  width: 100%;
+  min-height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  transition: background-image 0.5s ease-in-out;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://i.postimg.cc/P5MsyMCN/Screenshot-2026-04-16-21-42-48.png");
 }
 
 /* VENTANA MODAL (POP-UP) - El fondo que cubre la pantalla al ver detalles de un jugador */
 .modal-jugador {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 999999;
-    pointer-events: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999999;
+  pointer-events: auto;
 }
 
 /* FICHA DETALLADA - La tarjeta central que aparece con la info del jugador */
 .ficha-detalle {
-    background: #000000;
-    border: 2px solid #0055ff;
-    border-radius: 15px;
-    width: 320px;
-    padding: 20px;
-    text-align: center;
-    color: white;
-    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.9);
-    animation: aparecer 0.3s ease-out;
+  background: #000000;
+  border: 2px solid #0055ff;
+  border-radius: 15px;
+  width: 320px;
+  padding: 20px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.9);
+  animation: aparecer 0.3s ease-out;
 }
 
 /* FILA DE JUGADOR EN LISTA - Estilo de cada nombre en la plantilla con efecto de desplazamiento */
 .player-box {
-    display: flex;
-    align-items: center;
-    padding: 12px 15px;
-    background: #000000;
-    border-radius: 10px;
-    margin-bottom: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: 1px solid #222;
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  background: #000000;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid #222;
 }
 
 .player-box:hover {
-    background: #000000;
-    transform: translateX(5px);
-    border-color: #0055ff;
-    box-shadow: 0 0 15px rgba(0, 85, 255, 0.3);
+  background: #000000;
+  transform: translateX(5px);
+  border-color: #0055ff;
+  box-shadow: 0 0 15px rgba(0, 85, 255, 0.3);
 }
 
 /* CUADRÍCULA DE ESTADÍSTICAS - Organiza los datos (Goles, Minutos, etc.) en dos columnas */
 .stats-grid-detalle {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    margin-top: 15px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 15px;
 }
 
 /* ÍTEM DE ESTADÍSTICA - Estilo individual para cada dato estadístico */
 .stat-item {
-    background: #151515;
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #222;
+  background: #151515;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #222;
 }
 
-.stat-item span { font-size: 1.2rem; display: block; font-weight: bold; }
-.stat-item label { font-size: 0.65rem; color: #888; text-transform: uppercase; }
+.stat-item span {
+  font-size: 1.2rem;
+  display: block;
+  font-weight: bold;
+}
+.stat-item label {
+  font-size: 0.65rem;
+  color: #888;
+  text-transform: uppercase;
+}
 
 /* ANIMACIÓN DE ESCALA - Hace que los modales crezcan al aparecer */
 @keyframes aparecer {
-    from { transform: scale(0.8); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 /* CONTENEDOR DEL RELOJ - Caja que muestra la cuenta atrás para el próximo partido */
 .countdown-box {
-    background: rgba(0, 0, 0, 0.6);
-    border: 2px solid #0055ff;
-    border-radius: 15px;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 500px;
-    text-align: center;
-    backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid #0055ff;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 500px;
+  text-align: center;
+  backdrop-filter: blur(5px);
 }
 
 .reloj-titulo {
-    color: #0055ff;
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-    letter-spacing: 2px;
+  color: #0055ff;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  letter-spacing: 2px;
 }
 
 /* VISUALIZACIÓN DEL TIEMPO - Alinea días, horas, minutos y segundos */
 .reloj-display {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin: 15px 0;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 15px 0;
 }
 
 .reloj-bloque {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-width: 65px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 65px;
 }
 
 .reloj-numero {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #ffffff;
-    text-shadow: 0 0 10px #0055ff;
-    font-family: monospace;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 0 0 10px #0055ff;
+  font-family: monospace;
 }
 
 .reloj-etiqueta {
-    font-size: 0.7rem;
-    color: #aaa;
-    text-transform: uppercase;
+  font-size: 0.7rem;
+  color: #aaa;
+  text-transform: uppercase;
 }
 
 /* TEXTO DE INFO DEL RELOJ - Por ejemplo: "Tiempo restante" */
 .reloj-info {
-    margin-top: 15px;
-    color: #00ff88;
-    font-weight: bold;
-    font-size: 1rem;
+  margin-top: 15px;
+  color: #00ff88;
+  font-weight: bold;
+  font-size: 1rem;
 }
 
 /* FILA DE PARTIDOS - Contenedor flexible para alinear tarjetas de partido y campo táctico */
 .fila-partidos {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    gap: 25px;
-    width: 100%;
-    max-width: 1300px;
-    margin: 30px auto;
-    padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 25px;
+  width: 100%;
+  max-width: 1300px;
+  margin: 30px auto;
+  padding: 0 20px;
 }
 
 /* TARJETA INFORMATIVA - Estilo para bloques de información general (MVP, Resumen) */
 .card-informativa {
-    flex: 1;
-    min-width: 0;
-    background: rgba(0, 0, 0, 0.7);
-    border: 2px solid #0055ff;
-    border-radius: 12px;
-    padding: 25px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  flex: 1;
+  min-width: 0;
+  background: rgba(0, 0, 0, 0.7);
+  border: 2px solid #0055ff;
+  border-radius: 12px;
+  padding: 25px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .card-informativa h3 {
-    color: #0055ff;
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
+  color: #0055ff;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 /* TEXTO DE MARCADOR Y RESUMEN - Estilo para los resultados y crónicas cortas */
 .marcador-texto {
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: white;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: white;
 }
 
 .resumen-texto {
-    font-size: 0.9rem;
-    color: #aaa;
-    margin: 15px 0;
-    line-height: 1.4;
+  font-size: 0.9rem;
+  color: #aaa;
+  margin: 15px 0;
+  line-height: 1.4;
 }
 
 /* TEXTO MVP - Color dorado para resaltar al mejor jugador */
 .mvp-texto {
-    color: #ffd700;
-    font-size: 1.4rem;
-    font-weight: bold;
+  color: #ffd700;
+  font-size: 1.4rem;
+  font-weight: bold;
 }
 
 /* AJUSTES DE TEXTO EN EL RELOJ - Estilos específicos para los números y etiquetas */
 .reloj-display span {
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: #ffffff;
-    display: block;
-    line-height: 1;
-    text-shadow: 0 0 15px rgba(0, 85, 255, 0.5);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  display: block;
+  line-height: 1;
+  text-shadow: 0 0 15px rgba(0, 85, 255, 0.5);
 }
 
 .reloj-display small {
-    font-size: 0.75rem;
-    color: #0055ff;
-    text-transform: uppercase;
-    font-weight: bold;
-    margin-top: 5px;
+  font-size: 0.75rem;
+  color: #0055ff;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-top: 5px;
 }
 
 .reloj-display div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 85, 255, 0.1);
-    padding: 15px;
-    border-radius: 10px;
-    min-width: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 85, 255, 0.1);
+  padding: 15px;
+  border-radius: 10px;
+  min-width: 80px;
 }
 
 /* CAMPO TÁCTICO - Dibuja el fondo del campo de fútbol con líneas de cuadrícula */
 .campo-tactico {
-    background: #050505;
-    border: 1px solid #333;
-    border-radius: 8px;
-    height: 280px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    padding: 10px 0;
-    position: relative;
-    background-image: linear-gradient(#222 1px, transparent 1px);
-    background-size: 100% 50%;
+  background: #050505;
+  border: 1px solid #333;
+  border-radius: 8px;
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px 0;
+  position: relative;
+  background-image: linear-gradient(#222 1px, transparent 1px);
+  background-size: 100% 50%;
 }
 
 /* LÍNEAS DEL CAMPO - Filas horizontales para colocar a los jugadores según su posición */
 .linea-campo {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
 }
 
 /* JUGADOR EN EL CAMPO - El icono redondo azul con el nombre debajo */
 .jugador-t {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60px;
 }
 
 .jugador-t span {
-    background: #0055ff;
-    color: white;
-    font-size: 0.7rem;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid white;
+  background: #0055ff;
+  color: white;
+  font-size: 0.7rem;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
 }
 
 .jugador-t p {
-    font-size: 0.65rem;
-    color: white;
-    margin-top: 2px;
-    text-transform: uppercase;
-    outline: none;
-    cursor: text;
+  font-size: 0.65rem;
+  color: white;
+  margin-top: 2px;
+  text-transform: uppercase;
+  outline: none;
+  cursor: text;
 }
 
 /* DISEÑO RESPONSIVO (MÓVILES) - Ajustes para que la web se vea bien en teléfonos (columnas, tamaños de fuente, etc.) */
 @media (max-width: 768px) {
-    .fila-partidos {
-        flex-direction: column;
-        padding: 0 10px;
-    }
-    .card-informativa {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-    .team-container {
-        width: 95% !important;
-        margin: 10px auto !important;
-    }
-    .shortcut-menu, .players-dark-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 10px !important;
-    }
-    .view-section table {
-        display: block;
-        overflow-x: auto;
-        white-space: nowrap;
-    }
-    .hero-inner h1 {
-        font-size: 2.5rem !important;
-    }
-    #campo {
-        width: 100% !important;
-        max-width: 320px;
-        height: 450px !important;
-    }
+  .fila-partidos {
+    flex-direction: column;
+    padding: 0 10px;
+  }
+  .card-informativa {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .team-container {
+    width: 95% !important;
+    margin: 10px auto !important;
+  }
+  .shortcut-menu,
+  .players-dark-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+  .view-section table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .hero-inner h1 {
+    font-size: 2.5rem !important;
+  }
+  #campo {
+    width: 100% !important;
+    max-width: 320px;
+    height: 450px !important;
+  }
 }
