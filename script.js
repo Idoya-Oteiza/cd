@@ -1,8 +1,8 @@
 /* CONFIGURACIÓN DE FECHAS - Aquí se guardan los próximos partidos y el mensaje de estado para cada equipo */
 const fechasPartidos = {
   primer: {
-    fecha: "May 16, 2026 17:00:00",
-    info: "Cirbonero vs Idoya | Iturtxipia",
+    fecha: "September 1, 2026 12:00:00",
+    info: "Liga Finalizada | A la espera de la 26/27",
   },
   segundo: {
     fecha: "September 1, 2026 12:00:00",
