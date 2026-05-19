@@ -8,7 +8,11 @@ const fechasPartidos = {
     fecha: "September 1, 2026 12:00:00",
     info: "Liga Finalizada | A la espera de la 26/27",
   },
-  juvenil: {
+  juvenila: {
+    fecha: "September 1, 2026 12:00:00",
+    info: "Liga Finalizada | A la espera de la 26/27",
+  },
+  juvenilb: {
     fecha: "September 1, 2026 12:00:00",
     info: "Liga Finalizada | A la espera de la 26/27",
   },
@@ -26,8 +30,11 @@ function cambiarCategoria(categoria) {
       "https://www.futnavarra.es/pnfg/NPcd/NFG_VisEquipos?cod_primaria=1000119&Codigo_Equipo=3500",
     segundo:
       "https://www.futnavarra.es/pnfg/NPcd/NFG_VisEquipos?cod_primaria=1000119&Codigo_Equipo=4916",
-    juvenil:
+    juvenila:
       "https://www.futnavarra.es/pnfg/NPcd/NFG_VisEquipos?cod_primaria=1000119&Codigo_Equipo=6461",
+    juvenilb:
+      "https://www.futnavarra.es/pnfg/NPcd/NFG_VisEquipos?cod_primaria=1000119&Codigo_Equipo=6461",
+
     cadete:
       "https://www.futnavarra.es/pnfg/NPcd/NFG_VisEquipos?cod_primaria=1000119&Codigo_Equipo=6457",
   };
@@ -35,7 +42,10 @@ function cambiarCategoria(categoria) {
   const fotosCabecera = {
     primer: "https://i.postimg.cc/P5MsyMCN/Screenshot-2026-04-16-21-42-48.png",
     segundo: "https://i.postimg.cc/8CnYXXNB/Screenshot-2026-04-16-21-42-29.png",
-    juvenil: "https://i.postimg.cc/8cLn51WL/Screenshot-2026-04-16-21-43-31.png",
+    juvenila:
+      "https://i.postimg.cc/8cLn51WL/Screenshot-2026-04-16-21-43-31.png",
+    juvenilb:
+      "https://i.postimg.cc/8cLn51WL/Screenshot-2026-04-16-21-43-31.png",
     cadete: "https://i.postimg.cc/284PjxFJ/Screenshot-2026-04-16-21-42-40.png",
   };
 
