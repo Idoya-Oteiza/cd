@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - ¡Fuera de Juego! | C.D. Idoya</title>
+    <style>
+        /* VARIABLES DE DISEÑO - Mantienen tus mismos colores oficiales */
+        :root {
+            --primary-blue: #0055ff;
+            --primary-red: #cc0000;
+            --bg-black: #050505;
+            --text-white: #ffffff;
+            --text-grey: #a0a0a0;
+            --border: #222222;
+        }
+
+        /* RESETEO Y CONFIGURACIÓN BASE */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-black);
+            color: var(--text-white);
+            font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* EFECTO DE LÍNEAS DE CAMPO DE FONDO (Sutil para decorar) */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                radial-gradient(circle at center, rgba(0, 85, 255, 0.05) 0%, transparent 70%),
+                linear-gradient(rgba(255, 255, 255, 0.01) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.01) 1px, transparent 1px);
+            background-size: 100% 100%, 50px 50px, 50px 50px;
+            z-index: 1;
+        }
+
+        /* CONTENEDOR PRINCIPAL */
+        .error-container {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            padding: 40px 20px;
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        /* NÚMERO 404 GRANDE */
+        .error-code {
+            font-size: clamp(6rem, 15vw, 9rem);
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -4px;
+            background: linear-gradient(135deg, var(--primary-red), var(--primary-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+
+        /* TÍTULO EN JUEGO */
+        .error-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            margin-bottom: 15px;
+        }
+
+        /* LÍNEA DECORATIVA COMO LA DE TU NAVBAR */
+        .line-decorator {
+            width: 60px;
+            height: 4px;
+            background: var(--primary-blue);
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        /* DESCRIPCIÓN */
+        .error-message {
+            color: var(--text-grey);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        /* BOTÓN ROJO DE RETORNO - Igual que tus enlaces de volver */
+        .btn-home {
+            display: inline-block;
+            background: var(--primary-red);
+            color: var(--text-white);
+            text-decoration: none;
+            padding: 14px 35px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(204, 0, 0, 0.2);
+        }
+
+        .btn-home:hover {
+            background: var(--primary-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 85, 255, 0.3);
+        }
+
+        /* ANIMACIÓN DE ENTRADA SUAVE */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="error-container">
+        <div class="error-code">404</div>
+        
+        <h1 class="error-title">¡Fuera de Juego! 🚩</h1>
+        
+        <div class="line-decorator"></div>
+        
+        <p class="error-message">
+            La jugada ha quedado invalidada. La página que estás buscando no existe, ha cambiado de posición o se ha retirado a los vestuarios.
+        </p>
+        
+        <a href="index.html" class="btn-home">Volver al Terreno de Juego</a>
+    </div>
+
+</body>
+</html>
