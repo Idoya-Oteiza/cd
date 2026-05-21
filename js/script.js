@@ -40,13 +40,11 @@ function cambiarCategoria(categoria) {
   };
 
   const fotosCabecera = {
-    primer: "https://i.postimg.cc/P5MsyMCN/Screenshot-2026-04-16-21-42-48.png",
-    segundo: "https://i.postimg.cc/8CnYXXNB/Screenshot-2026-04-16-21-42-29.png",
-    juvenila:
-      "https://i.postimg.cc/8cLn51WL/Screenshot-2026-04-16-21-43-31.png",
-    juvenilb:
-      "https://i.postimg.cc/8cLn51WL/Screenshot-2026-04-16-21-43-31.png",
-    cadete: "https://i.postimg.cc/284PjxFJ/Screenshot-2026-04-16-21-42-40.png",
+    primer: "img/primer-25-26.png",
+    segundo: "img/segundo-25-26.png",
+    juvenila:"img/juvenil-25-26.png",
+    juvenilb:"img/juvenil-25-26.png",
+    cadete: "img/cadete-25-26.png",
   };
 
   const enlaceFNF = document.getElementById("link-fnf");
