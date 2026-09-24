@@ -1,24 +1,24 @@
-/* CONFIGURACIÓN DE FECHAS - Aquí se guardan los próximos partidos y el mensaje de estado para cada equipo */
+/* CONFIGURACIÓN DE FECHAS - Próximos partidos y estados para cada categoría (Temporada 26/27) */
 const fechasPartidos = {
   primer: {
-    fecha: "September 1, 2026 12:00:00",
-    info: "Liga Finalizada | A la espera de la 26/27",
+    fecha: "September 27, 2026 17:00:00",
+    info: "Jornada 2: CD IDOYA vs CD Zarramonza | Estadio Iturtxipia 🏟️",
   },
   segundo: {
-    fecha: "September 1, 2026 12:00:00",
-    info: "Liga Finalizada | A la espera de la 26/27",
+    fecha: "September 27, 2026 16:00:00",
+    info: "Jornada 2: CD IDOYA B vs Rival | Temporada 26/27 ⚽",
   },
   juvenila: {
-    fecha: "September 1, 2026 12:00:00",
-    info: "Liga Finalizada | A la espera de la 26/27",
+    fecha: "September 26, 2026 16:30:00",
+    info: "Jornada 2: JUVENIL A vs Rival | Temporada 26/27 ⚽",
   },
   juvenilb: {
-    fecha: "September 1, 2026 12:00:00",
-    info: "Liga Finalizada | A la espera de la 26/27",
+    fecha: "September 26, 2026 18:30:00",
+    info: "Jornada 2: JUVENIL B | ¡Nueva Categoría 26/27! 🔥",
   },
   cadete: {
-    fecha: "September 1, 2026 12:00:00",
-    info: "Liga Finalizada | A la espera de la 26/27",
+    fecha: "September 26, 2026 12:00:00",
+    info: "Jornada 2: CADETE | Temporada 26/27 ⚽",
   },
 };
 let countdownInterval;

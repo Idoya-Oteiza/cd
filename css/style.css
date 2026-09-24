@@ -1,33 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Rajdhani:wght@600;700;800&display=swap');
+
 /* SELECTOR SUPERIOR DE CATEGORÍA (FIJO) - Controla la barra para cambiar entre Primer Equipo, Juvenil, etc. */
 .main-category-selector {
-  background: #0a0a0a;
-  padding: 15px;
-  border-bottom: 2px solid #cc0000;
+  background: rgba(10, 12, 18, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 14px 20px;
+  border-bottom: 2px solid var(--primary-red);
   position: fixed !important;
   top: 110px;
   left: 0;
   width: 100%;
   z-index: 9999;
   text-align: center;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
   transition: top 0.3s ease-in-out;
 }
 
 /* ETIQUETAS DEL SELECTOR - Estilo del texto que acompaña a los desplegables */
 .selector-content label {
   color: white;
-  font-weight: bold;
-  margin-right: 10px;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-right: 12px;
 }
 
 /* SELECTOR DE EQUIPO (DESPLEGABLE) - Estilo del menú 'select' para elegir equipo */
 #team-switcher {
-  padding: 8px 15px;
-  background: #1a1a1a;
+  padding: 10px 20px;
+  background: rgba(20, 26, 40, 0.9);
   color: white;
-  border: 1px solid #0055ff;
-  border-radius: 4px;
+  border: 1.5px solid var(--primary-blue);
+  border-radius: 8px;
   cursor: pointer;
-  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 85, 255, 0.2);
+}
+
+#team-switcher:hover, #team-switcher:focus {
+  border-color: #3388ff;
+  box-shadow: 0 0 20px rgba(0, 136, 255, 0.4);
 }
 
 /* CLASES DE UTILIDAD PARA OCULTAR - Se usan para mostrar/ocultar secciones mediante JavaScript */
@@ -39,12 +58,16 @@
 /* VARIABLES DE DISEÑO (:ROOT) - Aquí se definen los colores oficiales (Azul y Rojo) para usarlos en todo el CSS */
 :root {
   --primary-blue: #0055ff;
-  --primary-red: #cc0000;
-  --bg-black: #050505;
-  --bg-card: #111111;
+  --primary-blue-glow: rgba(0, 85, 255, 0.35);
+  --primary-red: #d90429;
+  --primary-red-glow: rgba(217, 4, 41, 0.35);
+  --accent-gold: #ffd700;
+  --bg-black: #07090e;
+  --bg-card: rgba(17, 22, 34, 0.85);
+  --bg-card-hover: rgba(26, 34, 52, 0.95);
   --text-white: #ffffff;
-  --text-grey: #a0a0a0;
-  --border: #222222;
+  --text-grey: #94a3b8;
+  --border: rgba(255, 255, 255, 0.1);
 }
 
 /* RESETEO UNIVERSAL - Elimina márgenes por defecto del navegador para que todo encaje bien */
@@ -58,9 +81,9 @@
 body {
   background-color: var(--bg-black);
   color: var(--text-white);
-  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   line-height: 1.6;
-  padding-top: 160px;
+  padding-top: 165px;
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
